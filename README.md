@@ -1,4 +1,4 @@
-# 🏥 VetClinic Frontend
+# VetClinic Frontend
 
 **VetClinic** is a modern web application designed to manage veterinary appointments efficiently. This repository contains the frontend built with React and JavaScript.
 
@@ -31,13 +31,13 @@
 ```sh
 git clone https://github.com/Tilek04/VetClinic-Front-End.git
 cd vetclinic-frontend
-
+```
 ```sh
 npm install
-
+```
 ```sh
 npm run dev
-
+```
 
 ## License
 This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
