@@ -9,9 +9,8 @@ function Login() {
       <div className="login__page">
         <div className="left_container">
           <div className="form">
-            <h1>Get Started Now</h1>
-            <label htmlFor="name">Name</label>
-            <input id="name" type="text" placeholder="Enter your name" />
+            <h1>Welcome back!</h1>
+            <span>Enter your Credentials to access your account</span>
             <label htmlFor="email">Email Address</label>
             <input id="email" type="email" placeholder="Enter your email" />
             <label htmlFor="password">Password</label>
@@ -25,12 +24,14 @@ function Login() {
               <p>I agree to the terms & policy</p>
             </div>
             <button type="submit" className="btn">
-              Sign up
+              Login
             </button>
 
             <div className="login__block">
-              <p>Have an account?</p>
-              <Link className="sign-in-link" to="/signup">Sign In</Link>
+              <p>Don'tave an account?</p>
+              <Link className="sign-in-link" to="/signup">
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>

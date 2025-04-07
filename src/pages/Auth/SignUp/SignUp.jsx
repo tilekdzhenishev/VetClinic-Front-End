@@ -30,7 +30,7 @@ function SignUp() {
 
             <div className="login__block">
               <p>Have an account?</p>
-              <Link className="sign-in-link" to="/signup">Sign In</Link>
+              <Link className="sign-in-link" to="/login">Login</Link>
             </div>
           </div>
         </div>
