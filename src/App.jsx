@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Route, Routes, useNavigate,  } from "react-router";
 import "./App.css";
+import SignUp from "./pages/Auth/SignUp/SignUp";
 
 function App() {
   return (
     <>
-      <h1>Setting Up VetClinic</h1>
+      <SignUp/>
     </>
   );
 }

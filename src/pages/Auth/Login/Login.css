@@ -1,0 +1,76 @@
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .login__page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .left_container {
+    width: 50%;
+    height: 100%;
+  }
+  .right_container {
+    width: 50%;
+    height: 100vh;
+    background-image: url("https://s3-alpha-sig.figma.com/img/3077/8e75/ccd388dc90c7e2059bddb5eb1ff78dd3?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=XjhHCAxasp3iFUxCll9Sc~L1WObRsw2nGO3tpaLoKQld-ibKjQGI~93un7ali8LAyDOzPky-qdpIiXebK1OHmZl-ft0l7wZyRaDE89ug~JO9FqRrRNYU8xZa6~yknFliQXb4dEq-zFEI2LpIxFDR1SobZGeuvizI-DlbZn9Jjf9BrKb67AYrTDihGk-rw0Dwz~qf9wxSVvbAmfw9Bst~Kw1qxa2xPzxjxSeW0khxrjrL0o9waDklesdcaHVXUX~CpIhJSWZmb-qWnVdloGDAqZ~2YiRNXEkwOdxrOjReOkYN2Xd3kKQlZNN4x5G6u1cmKJ1pR-1DZGPnJb~YI~m4-w__");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    border-radius: 40px 0 0 40px;
+  }
+  
+  .right_container > img {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60%;
+    margin: 20% 0 0 25%;
+  }
+  .form > label {
+    position: relative;
+    top: 5px;
+    font-size: 14px;
+  }
+  .form > input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .checkbox {
+    display: flex;
+  }
+  .checkbox > p {
+    font-size: 10px;
+  }
+  .btn {
+    background-color: #30459d;
+    color: white;
+    padding: 10px 0 10px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .login__block{
+      display: flex;
+      justify-content: center;
+      font-size: 14px;
+      margin-top: 15px;
+  }
+  .sign-in-link{
+      margin-top: 14px;
+      margin-left: 5px;
+  }
+  

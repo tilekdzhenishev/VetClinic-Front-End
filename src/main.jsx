@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import {store} from './store/store.js'
+import Login from "./pages/Auth/Login/Login.jsx";
+import SignUp from "./pages/Auth/SignUp/SignUp.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -12,6 +14,8 @@ createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
       <Route path="/" element={<App/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<SignUp/>}/>
       </Routes>
     </Router>
     </Provider>
