@@ -12,6 +12,11 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    if (!email || !password) {
+      setError("All fields are required!");
+      return;
+    }
+
     try {
       const res = await fetch(
         "https://vetclinic-back-end.onrender.com/api/users/login",
