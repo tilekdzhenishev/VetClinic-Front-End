@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function SignUp() {
   return (
     <div>
-      <div className="login__page">
+      <div className="signup__page">
         <div className="left_container">
           <div className="form">
             <h1>Get Started Now</h1>

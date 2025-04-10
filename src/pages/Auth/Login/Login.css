@@ -31,24 +31,23 @@ span {
   height: 100%;
 }
 
-.login-container {
+.left_container_login {
   width: 50%;
   height: 100vh;
 }
 
-.login-container.left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.login-container.right {
-  background-image: url("https://s3-alpha-sig.figma.com/img/3077/8e75/ccd388dc90c7e2059bddb5eb1ff78dd3?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=XjhHCAxasp3iFUxCll9Sc~L1WObRsw2nGO3tpaLoKQld-ibKjQGI~93un7ali8LAyDOzPky-qdpIiXebK1OHmZl-ft0l7wZyRaDE89ug~JO9FqRrRNYU8xZa6~yknFliQXb4dEq-zFEI2LpIxFDR1SobZGeuvizI-DlbZn9Jjf9BrKb67AYrTDihGk-rw0Dwz~qf9wxSVvbAmfw9Bst~Kw1qxa2xPzxjxSeW0khxrjrL0o9waDklesdcaHVXUX~CpIhJSWZmb-qWnVdloGDAqZ~2YiRNXEkwOdxrOjReOkYN2Xd3kKQlZNN4x5G6u1cmKJ1pR-1DZGPnJb~YI~m4-w__");
+
+.right_container_login {
+  width: 50%;
+  height: 100vh; 
+  background-image: url("https://s3-alpha-sig.figma.com/img/98ea/6cfe/b731bef1fb2e2531695c977bdd736a40?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=MZUnIJ4PlNsrn1IGYgXtEkZVjJlgMwbOODerCuCE6lHd342Ho-5oGaAt2Vd18AqEQbBJHUePCUuLSgbrPfTjz8WzwBTgIf-bFp899jKtSIBqThKsSxJ2SGwBF3HQGbraa~Tv5jYgWbhCWnD33ayJKaPMF6Ver2K861P2IjDqdeNlXGF5p4Nw4bhEnm62tRqvrz5IxdaNKHuU1A2S6CXRDndvrOynbLt25rO4aMxzIqDJ8nVIn-G38EiXsp1omkCNcaCJ7hT9XbmFh7qqj0OeidKljUxeoJakHL3FQxIOIsNltAKwQ0uBTobF7BoYwi9crW0BIX0bqiM5NqT~tgmNQQ__");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center right;
+  background-position: center ;
   border-radius: 40px 0 0 40px;
 }
+
 
 .login-form {
   display: flex;

@@ -38,8 +38,8 @@ function Login() {
 
   return (
     <div>
-      <div className="login__page">
-        <div className="left_container">
+      <div className="login-page">
+        <div className="left_container_login">
           <form className="form" onSubmit={handleLogin}>
             <h1>Welcome back!</h1>
             <span>Enter your Credentials to access your account</span>
@@ -74,7 +74,7 @@ function Login() {
             </div>
           </form>
         </div>
-        <div className="right_container"> </div>
+        <div className="right_container_login"> </div>
       </div>
     </div>
   );
