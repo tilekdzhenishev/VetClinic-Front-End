@@ -56,7 +56,12 @@ function Login() {
               placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label htmlFor="password">Password</label>
+            <div className="login_forgot_password">
+              <label htmlFor="password">Password</label>
+              <Link className="forgot_pass" to="/forgot-password">
+                forgot password
+              </Link>
+            </div>
             <input
               id="password"
               type="password"

@@ -20,7 +20,7 @@ html, body {
 .right_container {
   width: 50%;
   height: 100vh;
-  background-image: url("https://s3-alpha-sig.figma.com/img/3077/8e75/ccd388dc90c7e2059bddb5eb1ff78dd3?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=XjhHCAxasp3iFUxCll9Sc~L1WObRsw2nGO3tpaLoKQld-ibKjQGI~93un7ali8LAyDOzPky-qdpIiXebK1OHmZl-ft0l7wZyRaDE89ug~JO9FqRrRNYU8xZa6~yknFliQXb4dEq-zFEI2LpIxFDR1SobZGeuvizI-DlbZn9Jjf9BrKb67AYrTDihGk-rw0Dwz~qf9wxSVvbAmfw9Bst~Kw1qxa2xPzxjxSeW0khxrjrL0o9waDklesdcaHVXUX~CpIhJSWZmb-qWnVdloGDAqZ~2YiRNXEkwOdxrOjReOkYN2Xd3kKQlZNN4x5G6u1cmKJ1pR-1DZGPnJb~YI~m4-w__");
+  background-image: url("../../../assets/images/signUp_dog.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
