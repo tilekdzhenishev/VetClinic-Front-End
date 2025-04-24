@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Route, Routes, useNavigate,  } from "react-router";
 import "./App.css";
@@ -8,6 +9,7 @@ function App() {
     <>
       <SignUp/>
     </>
+
   );
 }
 

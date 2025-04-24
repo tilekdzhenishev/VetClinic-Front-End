@@ -1,0 +1,74 @@
+.contactBanner {
+  background-color: #1A3765;
+  padding: 120px 60px;
+  color: white; 
+  max-width: 2000px;
+  margin: 20px auto; 
+  border-radius: 16px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textContainer {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.title {
+  font-size: 5.2em;
+  font-weight: 700;
+  margin-bottom: 80px;
+  line-height: 0.4;
+}
+
+.contactInfo {
+  margin-top: px;
+  font-size: 2.2em;
+  line-height: 1.5;
+}
+
+.contactInfo p {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.imageContainer {
+  flex: 1;
+  text-align: right;
+}
+
+.contactImage {
+  max-width: 100%;
+  height: 600px;
+  border-radius: 16px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .textContainer {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .imageContainer {
+    text-align: center;
+  }
+
+  .contactImage {
+    max-width: 80%;
+  }
+}
