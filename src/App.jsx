@@ -1,11 +1,11 @@
-import { useState } from "react";
-import "./App.css";
+import React from 'react';
+import HomePage from './pages/HomePage/homePage';
 
 function App() {
   return (
-    <>
-      <h1>Setting Up VetClinic</h1>
-    </>
+    <div>
+      <HomePage />
+    </div>
   );
 }
 
