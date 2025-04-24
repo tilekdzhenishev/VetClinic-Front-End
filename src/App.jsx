@@ -1,11 +1,15 @@
-import React from 'react';
-import HomePage from './pages/HomePage/homePage';
+
+import { useState } from "react";
+import { Route, Routes, useNavigate,  } from "react-router";
+import "./App.css";
+import SignUp from "./pages/Auth/SignUp/SignUp";
 
 function App() {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <>
+      <SignUp/>
+    </>
+
   );
 }
 
