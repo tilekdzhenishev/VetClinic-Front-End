@@ -1,8 +1,17 @@
-import React from 'react';
-import styles from './Header.module.css';
-import logo from '../../assets/logo.png';
+import React from "react";
+import styles from "./Header.module.css";
+import logo from "../../assets/logo.png";
+import SignUp from "../../pages/Auth/SignUp/SignUp";
+import { useNavigate } from "react-router";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleButton = async (e) => {
+    e.preventDefault();
+
+    navigate("/signup");
+  };
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -10,13 +19,31 @@ function Header() {
       </div>
       <nav>
         <ul className={styles.navList}>
-          <li className={styles.navItem}><a className={styles.navLink} href="#">Home</a></li>
-          <li className={styles.navItem}><a className={styles.navLink} href="#">Consultation</a></li>
-          <li className={styles.navItem}><a className={styles.navLink} href="#">Blog</a></li>
-          <li className={styles.navItem}><a className={styles.navLink} href="#">Contacts</a></li>
+          <li className={styles.navItem}>
+            <a className={styles.navLink} href="#">
+              Home
+            </a>
+          </li>
+          <li className={styles.navItem}>
+            <a className={styles.navLink} href="#">
+              Consultation
+            </a>
+          </li>
+          <li className={styles.navItem}>
+            <a className={styles.navLink} href="#">
+              Blog
+            </a>
+          </li>
+          <li className={styles.navItem}>
+            <a className={styles.navLink} href="#">
+              Contacts
+            </a>
+          </li>
         </ul>
       </nav>
-      <button className={styles.button}>Sign Up</button>
+      <button className={styles.button} onClick={handleButton}>
+        Sign Up
+      </button>
     </header>
   );
 }

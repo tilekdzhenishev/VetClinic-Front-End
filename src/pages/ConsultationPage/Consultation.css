@@ -1,0 +1,85 @@
+.consultation-page {
+  font-family: "Inter", sans-serif;
+}
+
+.hero {
+  background: url("../../assets/Header.png") center center/cover no-repeat;
+  color: white;
+  height: 100vh;
+  display: flex;
+
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  max-width: 700px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-top: 70%;
+  margin-left: 10%;
+}
+
+.consult-section,
+.visit-section {
+  display: flex;
+
+  padding: 80px 10%;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.consult-left,
+.visit-right,
+.consult-right,
+.visit-left {
+  flex: 1;
+  min-width: 280px;
+}
+h2 {
+  font-size: 45px;
+  font-weight: normal;
+}
+p {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.consult-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+  margin-top: 20px;
+  padding: 18px 35px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #3730a3;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .consult-section,
+  .visit-section {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .primary-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
