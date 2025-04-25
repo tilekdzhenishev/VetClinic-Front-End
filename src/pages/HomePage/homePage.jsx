@@ -5,7 +5,6 @@ import Mid from "./components/Mid";
 import Benefits from "./components/Benefits";
 import ContactBanner from "./components/ContactBanner";
 import Footer from "./components/Footer";
-
 const HomePage = () => {
   return (
     <Fragment>
