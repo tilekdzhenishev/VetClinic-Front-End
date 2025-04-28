@@ -16,7 +16,7 @@ function ResetPassword() {
 
     try {
       const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/users/reset-password",
+        "https://vetclinic-back-end.onrender.com/api/auth/reset-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -21,7 +21,7 @@ function ForgotPassword() {
 
     try {
       const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/users/forgot-password",
+        "https://vetclinic-back-end.onrender.com/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

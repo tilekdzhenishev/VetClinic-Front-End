@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import SignUp from "../../pages/Auth/SignUp/SignUp";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
