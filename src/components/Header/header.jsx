@@ -25,9 +25,9 @@ function Header() {
             </a>
           </li>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#">
+            <Link to="/consultation" className={styles.navLink}>
               Consultation
-            </a>
+            </Link>
           </li>
           <li className={styles.navItem}>
             <a className={styles.navLink} href="#">
