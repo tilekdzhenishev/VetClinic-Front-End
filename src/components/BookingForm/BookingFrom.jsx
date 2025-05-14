@@ -183,30 +183,23 @@ const MultiStepFormModal = ({ isOpen, onClose }) => {
 
         {step === 3 && (
           <div className="form-step">
-            <h3>Confirmation</h3>
-            <p>
-              <strong>Name:</strong> {formData.firstName} {formData.lastName}
-            </p>
-            <p>
-              <strong>Email:</strong> {formData.email}
-            </p>
-            <p>
-              <strong>Phone:</strong> {formData.mobileNumber}
-            </p>
-            <p>
-              <strong>Pet Name:</strong> {formData.petName}
-            </p>
-            <p>
-              <strong>Date:</strong>{" "}
-              {formData.selectedDate.toLocaleDateString()}
-            </p>
-            <p>
-              <strong>Time:</strong> {formData.selectedTime}
-            </p>
-            <button onClick={prevStep}>← Back</button>
-            <button className="confirm-btn" onClick={handleClose}>
-              Confirm Booking
-            </button>
+            <h3 className="step-3-title">Confirmation</h3>
+            <div className="data-form">
+              <p>
+                Name:{formData.firstName} {formData.lastName}
+              </p>
+              <p>Email:{formData.email}</p>
+              <p>Phone: {formData.mobileNumber}</p>
+              <p>Pet Name:{formData.petName}</p>
+              <p>Date: {formData.selectedDate.toLocaleDateString()}</p>
+              <p>Time:{formData.selectedTime}</p>
+            </div>
+            <div className="btns-step-3">
+              <button onClick={prevStep}>← Back</button>
+              <button className="confirm-btn" onClick={handleClose}>
+                Confirm Booking
+              </button>
+            </div>
           </div>
         )}
       </div>

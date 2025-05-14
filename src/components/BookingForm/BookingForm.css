@@ -83,3 +83,29 @@ button {
   width: 48%;
   box-shadow: 0 2px 5px rgba(43, 46, 105, 0.1);
 }
+
+.form-step > p {
+  font-size: 20px;
+  margin-top: 0px;
+}
+.btns-step-3 {
+  position: relative;
+  top: 10px;
+  left: 75%;
+}
+.btns-step-3 > button {
+  margin-left: 10px;
+}
+.step-3-title{
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: #1e4cc1;
+}
+.data-form{
+  width: 400px;
+  border: 3px solid #1e4cc1;
+  border-radius: 15px;
+  margin-left: 30%;
+
+}
