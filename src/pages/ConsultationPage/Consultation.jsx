@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Consultation.css";
 import Header from "../../components/Header/header";
 import Footer from "../HomePage/components/Footer";
 import consultImg from "../../assets/consult-2.png";
 import clinicImg from "../../assets/consult-3.png";
+import MultiStepFormModal from "../../components/BookingForm/BookingFrom";
+
 
 function Consultation() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <Header />
       <main className="consultation-page">
         <section className="hero">
           <div className="hero-content">
-            <h1>Convenient an offline veterinary services</h1>
+            <h1>Convenient and offline veterinary services</h1>
           </div>
         </section>
 
@@ -26,7 +30,12 @@ function Consultation() {
               consultations. Book your appointment today for hassle-free pet
               care.
             </p>
-            <button className="primary-btn">Consultation →</button>
+            <button
+              className="primary-btn"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Consultation →
+            </button>
           </div>
           <div className="consult-right">
             <img
@@ -53,6 +62,11 @@ function Consultation() {
           </div>
         </section>
       </main>
+
+      <MultiStepFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       <Footer />
     </>
   );
