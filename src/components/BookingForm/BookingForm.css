@@ -37,21 +37,19 @@
 .form-step {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-input,
-textarea {
+input {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 45%;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-left: 10px;
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #1e4cc1;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -62,4 +60,26 @@ button {
 
 .confirm-btn {
   background-color: #007bff;
+}
+
+.btn-step-1 {
+  width: 10%;
+  margin-top: 30px;
+  margin-left: 86%;
+}
+
+.btns-step-2 {
+  position: relative;
+  left: 80%;
+}
+.btns-step-2 > button {
+  margin-left: 10px;
+}
+
+.custom-calendar {
+  border-radius: 8px;
+  background-color: #123173;
+  margin-bottom: 10px;
+  width: 48%;
+  box-shadow: 0 2px 5px rgba(43, 46, 105, 0.1);
 }

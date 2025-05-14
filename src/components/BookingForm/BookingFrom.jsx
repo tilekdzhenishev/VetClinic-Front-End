@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import "./BookingForm.css";
 
 const MultiStepFormModal = ({ isOpen, onClose }) => {
@@ -16,15 +18,22 @@ const MultiStepFormModal = ({ isOpen, onClose }) => {
     age: "",
     illnessPeriod: "",
     problem: "",
-    selectedDate: "",
-    selectedTime: ""
+    selectedDate: new Date(),
+    selectedTime: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
+    }));
+  };
+
+  const handleDateChange = (date) => {
+    setFormData((prev) => ({
+      ...prev,
+      selectedDate: date,
     }));
   };
 
@@ -46,8 +55,8 @@ const MultiStepFormModal = ({ isOpen, onClose }) => {
       age: "",
       illnessPeriod: "",
       problem: "",
-      selectedDate: "",
-      selectedTime: ""
+      selectedDate: new Date(),
+      selectedTime: "",
     });
   };
 
@@ -56,71 +65,153 @@ const MultiStepFormModal = ({ isOpen, onClose }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
+        <div className="step-indicator">
+          <span className={step === 1 ? "active" : ""}>1. Booking Details</span>
+          <span className={step === 2 ? "active" : ""}>
+            2. Select Date & Time
+          </span>
+          <span className={step === 3 ? "active" : ""}>3. Confirmation</span>
+        </div>
         <button className="close-button" onClick={handleClose}>
           ✕
         </button>
 
-        <div className="step-indicator">
-          <span className={step === 1 ? "active" : ""}>1. Booking Details</span>
-          <span className={step === 2 ? "active" : ""}>2. Select Date & Time</span>
-          <span className={step === 3 ? "active" : ""}>3. Confirmation</span>
-        </div>
-
         {step === 1 && (
           <div className="form-step">
-           
-            
             <h3>Personal Information</h3>
-            <div className="input-personal-Names"> 
-            <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} />
-            <input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} />
-           </div>
-           <div className="input-personal-address"> 
-            <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-            <input name="mobileNumber" placeholder="Mobile Number" value={formData.mobileNumber} onChange={handleChange} />
+            <div className="input-personal-Names">
+              <input
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+              <input
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleChange}
+              />
             </div>
-            <input name="address" placeholder="Address" value={formData.address} onChange={handleChange} />
-        
-            
+            <div className="input-personal-address">
+              <input
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <input
+                name="mobileNumber"
+                placeholder="Mobile Number"
+                value={formData.mobileNumber}
+                onChange={handleChange}
+              />
+            </div>
+            <input
+              name="address"
+              placeholder="Address"
+              value={formData.address}
+              onChange={handleChange}
+            />
             <div>
-            <h3>Pet Information</h3>
-            <input name="petName" placeholder="Pet Name" value={formData.petName} onChange={handleChange} />
-            <input name="petType" placeholder="Pet Type" value={formData.petType} onChange={handleChange} />
-            <input name="breed" placeholder="Breed" value={formData.breed} onChange={handleChange} />
-            <input name="age" placeholder="Age" value={formData.age} onChange={handleChange} />
-            <textarea name="problem" placeholder="Problem description" value={formData.problem} onChange={handleChange} />
-            <button onClick={nextStep}>Next →</button>
+              <h3>Pet Information</h3>
+              <input
+                name="petName"
+                placeholder="Pet Name"
+                value={formData.petName}
+                onChange={handleChange}
+              />
+              <input
+                name="petType"
+                placeholder="Pet Type"
+                value={formData.petType}
+                onChange={handleChange}
+              />
+              <input
+                name="breed"
+                placeholder="Breed"
+                value={formData.breed}
+                onChange={handleChange}
+              />
+              <input
+                name="age"
+                placeholder="Age"
+                value={formData.age}
+                onChange={handleChange}
+              />
+              <input
+                name="illnessPeriod"
+                placeholder="Illness Period"
+                value={formData.illnessPeriod}
+                onChange={handleChange}
+              />
+              <input
+                name="problem"
+                placeholder="Problem description"
+                value={formData.problem}
+                onChange={handleChange}
+              />
             </div>
+            <button className="btn-step-1" onClick={nextStep}>
+              Next →
+            </button>
           </div>
         )}
 
         {step === 2 && (
           <div className="form-step">
             <h3>Select Date & Time</h3>
-            <input name="selectedDate" type="date" value={formData.selectedDate} onChange={handleChange} />
-            <input name="selectedTime" type="time" value={formData.selectedTime} onChange={handleChange} />
-            <button onClick={prevStep}>← Back</button>
-            <button onClick={nextStep}>Next →</button>
+
+            <Calendar
+              onChange={handleDateChange}
+              value={formData.selectedDate}
+              className="custom-calendar"
+            />
+
+            <input
+              name="selectedTime"
+              type="time"
+              value={formData.selectedTime}
+              onChange={handleChange}
+            />
+            <div className="btns-step-2">
+              <button onClick={prevStep}>← Back</button>
+              <button onClick={nextStep}>Next →</button>
+            </div>
           </div>
         )}
 
         {step === 3 && (
           <div className="form-step">
             <h3>Confirmation</h3>
-            <p><strong>Name:</strong> {formData.firstName} {formData.lastName}</p>
-            <p><strong>Email:</strong> {formData.email}</p>
-            <p><strong>Phone:</strong> {formData.mobileNumber}</p>
-            <p><strong>Pet Name:</strong> {formData.petName}</p>
-            <p><strong>Date:</strong> {formData.selectedDate}</p>
-            <p><strong>Time:</strong> {formData.selectedTime}</p>
+            <p>
+              <strong>Name:</strong> {formData.firstName} {formData.lastName}
+            </p>
+            <p>
+              <strong>Email:</strong> {formData.email}
+            </p>
+            <p>
+              <strong>Phone:</strong> {formData.mobileNumber}
+            </p>
+            <p>
+              <strong>Pet Name:</strong> {formData.petName}
+            </p>
+            <p>
+              <strong>Date:</strong>{" "}
+              {formData.selectedDate.toLocaleDateString()}
+            </p>
+            <p>
+              <strong>Time:</strong> {formData.selectedTime}
+            </p>
             <button onClick={prevStep}>← Back</button>
-            <button className="confirm-btn" onClick={handleClose}>Confirm Booking</button>
+            <button className="confirm-btn" onClick={handleClose}>
+              Confirm Booking
+            </button>
           </div>
         )}
       </div>
     </div>
   );
 };
-
 
 export default MultiStepFormModal;
