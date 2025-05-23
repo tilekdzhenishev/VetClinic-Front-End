@@ -26,7 +26,7 @@ function SignUp() {
 
     try {
       const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/auth/register",
+        "https://vetclinic-back-end.onrender.com/api/users/register",
         {
           method: "POST",
           headers: {
@@ -48,7 +48,7 @@ function SignUp() {
     } catch (error) {
       setError(error.message);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -79,8 +79,8 @@ function SignUp() {
               placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <div className="checkbox">
-              <input type="checkbox" name="" id="" />
+            <div className="checkbox-component">
+              <input type="checkbox" />
               <p>I agree to the terms & policy</p>
             </div>
             <button type="submit" className="btn">

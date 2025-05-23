@@ -74,18 +74,21 @@ span {
   box-shadow: 0 0 0 2px rgba(48, 69, 157, 0.2);
 }
 
-.checkbox-container {
+.checkbox-login {
   display: flex;
+  justify-content: start;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.checkbox-container input {
-  margin-right: 8px;
+.checkbox-login > p {
+  font-size: 14px;
+  position: relative;
+  top: 5px;
 }
 
-.checkbox-container label {
-  font-size: 14px;
+.checkbox-login > input {
+  width: 15px;
 }
 
 .login-button {
@@ -139,7 +142,9 @@ span {
 
 @media (max-width: 768px) {
   .login-page {
-    flex-direction: column-reverse;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .login-container {
@@ -154,5 +159,13 @@ span {
   .login-form {
     width: 80%;
     padding: 30px 0;
+  }
+  .right_container_login {
+    display: none;
+  }
+
+  .left_container_login {
+    width: 100vh;
+    margin-top: 20%;
   }
 }

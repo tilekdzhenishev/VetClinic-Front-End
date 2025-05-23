@@ -10,102 +10,209 @@
 
 .modal-content {
   background-color: white;
-  padding: 20px;
-  width: 80%;
-  border-radius: 8px;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
   position: relative;
-  height: 80%;
-}
-
-.input-personal-Names,
-.input-personal-address {
-  display: flex;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .step-indicator {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.step-indicator span {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.step-indicator span.active {
+  background-color: #1e4cc1;
+  color: white;
 }
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
   cursor: pointer;
+  color: #666;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #333;
 }
 
 .form-step {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.form-step h3 {
+  color: #1e4cc1;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.input-personal-Names,
+.input-personal-address {
+  display: flex;
+  gap: 15px;
+}
+
+.input-pet-info {
+  display: flex;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 15px;
 }
 
 input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 45%;
-  margin-top: 10px;
-  margin-left: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  background-color: #fafafa;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1e4cc1;
+  background-color: white;
+}
+
+input.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
 }
 
 button {
   background-color: #1e4cc1;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #163a9a;
 }
 
 .confirm-btn {
-  background-color: #007bff;
+  background-color: #28a745;
+}
+
+.confirm-btn:hover {
+  background-color: #218838;
 }
 
 .btn-step-1 {
-  width: 10%;
-  margin-top: 30px;
-  margin-left: 86%;
+  align-self: flex-end;
+  margin-top: 20px;
 }
 
-.btns-step-2 {
-  position: relative;
-  left: 80%;
-}
-.btns-step-2 > button {
-  margin-left: 10px;
-}
-
-.custom-calendar {
-  border-radius: 8px;
-  background-color: #123173;
-  margin-bottom: 10px;
-  width: 48%;
-  box-shadow: 0 2px 5px rgba(43, 46, 105, 0.1);
-}
-
-.form-step > p {
-  font-size: 20px;
-  margin-top: 0px;
-}
+.btns-step-2,
 .btns-step-3 {
-  position: relative;
-  top: 10px;
-  left: 75%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
 }
-.btns-step-3 > button {
-  margin-left: 10px;
+
+.date-time-container {
+  display: flex;
+  gap: 30px;
+  align-items: start;
 }
-.step-3-title{
-  font-size: 35px;
+
+.calendar-container,
+.time-container {
+  flex: 1;
+}
+
+.custom-calendar input {
+  width: 100%;
+}
+
+.step-3-title {
+  font-size: 32px;
   font-weight: bold;
   text-align: center;
   color: #1e4cc1;
+  margin-bottom: 30px;
 }
-.data-form{
-  width: 400px;
+
+.data-form {
+  background-color: #f8f9fa;
   border: 3px solid #1e4cc1;
   border-radius: 15px;
-  margin-left: 30%;
+  padding: 25px;
+  margin: 0 auto 30px;
+  max-width: 500px;
+}
 
+.data-form p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .input-personal-Names,
+  .input-personal-address {
+    flex-direction: column;
+  }
+
+  .date-time-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btns-step-2,
+  .btns-step-3 {
+    justify-content: space-between;
+  }
+
+  .step-indicator {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

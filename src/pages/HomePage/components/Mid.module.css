@@ -1,37 +1,41 @@
 .midSection {
-  display: flex;
-  align-items: center;
-  padding: 80px 200px;
-  width: 100vw;
+  width: 100%;
   background-color: white;
-  justify-content: space-between;
+  padding: 4rem 1rem;
+}
+
+.container {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 2rem;
 }
 
 .textContainer {
   flex: 1;
-  max-width: 50%;
-  padding-right: 40px;
 }
 
 .title {
-  font-size: 4em;
+  font-size: 2.5rem;
   color: #333;
-  margin-bottom: 15px;
-  line-height: 1.2; 
+  margin-bottom: 1rem;
+  line-height: 1.2;
   font-weight: bold;
 }
 
 .description {
-  font-size: 2em;
+  font-size: 1.125rem;
   color: #666;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
 .blueLink {
   color: #007bff;
   text-decoration: none;
   font-weight: bold;
+  transition: all 0.2s ease;
 }
 
 .blueLink:hover {
@@ -40,29 +44,72 @@
 
 .imageContainer {
   flex: 1;
-  max-width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .midImage {
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+/* @media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .midSection {
+  .container {
     flex-direction: column;
     text-align: center;
-    padding: 60px 20px;
   }
+  
   .textContainer {
+    order: 2;
     max-width: 100%;
-    padding-right: 0;
-    margin-bottom: 30px;
   }
+  
   .imageContainer {
-    max-width: 100%;
-    margin-top: 30px;
+    order: 1;
+    margin-bottom: 1.5rem;
+    max-width: 80%;
+  }
+  
+  .title {
+    font-size: 2rem;
   }
 }
+
+@media (max-width: 480px) {
+  .midSection {
+    padding: 3rem 1rem;
+  }
+  
+  .container {
+    padding: 0;
+  }
+  
+  .imageContainer {
+    max-width: 100%;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .description {
+    font-size: 0.9375rem;
+  }
+} */

@@ -19,7 +19,7 @@ function Login() {
 
     try {
       const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/auth/login",
+        "https://vetclinic-back-end.onrender.com/api/users/login",
         {
           method: "POST",
           headers: {
@@ -68,7 +68,7 @@ function Login() {
               placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <div className="checkbox">
+            <div className="checkbox-login">
               <input type="checkbox" name="" id="" />
               <p>I agree to the terms & policy</p>
             </div>

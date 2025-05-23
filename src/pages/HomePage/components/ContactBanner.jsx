@@ -7,8 +7,10 @@ const ContactBanner = () => {
     <section className={styles.contactBanner}>
       <div className={styles.container}>
         <div className={styles.textContainer}>
-          <h2 className={styles.title}>Our experts are</h2>
-          <h2 className={styles.title}>available for you 24/7</h2>
+          <h2 className={styles.title}>
+            Our experts are
+            <span className={styles.titleBlock}>available for you 24/7</span>
+          </h2>
           <div className={styles.contactInfo}>
             <p>
               <span className={styles.icon}>📞</span> 48 21345 8888
