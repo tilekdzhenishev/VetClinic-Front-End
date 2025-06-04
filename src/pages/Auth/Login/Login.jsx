@@ -19,7 +19,7 @@ function Login() {
 
     try {
       const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/users/login",
+        "https://vetclinic-back-end.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {

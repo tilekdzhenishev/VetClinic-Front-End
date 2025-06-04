@@ -5,6 +5,47 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState({});
 
+  const handleSubmit = async () => {
+    try {
+      // 1. Получаем токен из localStorage
+      const token = localStorage.getItem('token'); // Убедитесь, что 'token' - это правильный ключ
+
+      // Проверяем, есть ли токен. Если нет, возможно, пользователь не залогинен.
+      if (!token) {
+        throw new Error("User not authenticated. Please log in.");
+      }
+
+      const res = await fetch(
+        "https://vetclinic-back-end.onrender.com/api/appointments",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // 2. Добавляем заголовок Authorization с токеном
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        // Улучшенное сообщение об ошибке для 401
+        if (res.status === 401) {
+          throw new Error("Unauthorized: Please log in again or check your permissions.");
+        }
+        throw new Error(data.message || "Failed to create appointment");
+      }
+
+      alert("Appointment created successfully!");
+      handleClose();
+    } catch (error) {
+      console.error("Booking error:", error); // Логируем полную ошибку для отладки
+      alert("Error: " + error.message);
+    }
+  };
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -412,7 +453,7 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
             </div>
             <div className="btns-step-3">
               <button onClick={prevStep}>← Back</button>
-              <button className="confirm-btn" onClick={handleClose}>
+              <button className="confirm-btn" onClick={handleSubmit}>
                 Confirm Booking
               </button>
             </div>

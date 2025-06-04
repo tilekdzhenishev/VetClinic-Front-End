@@ -26,7 +26,7 @@ function SignUp() {
 
     try {
       const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/users/register",
+        "https://vetclinic-back-end.onrender.com/api/auth/register",
         {
           method: "POST",
           headers: {

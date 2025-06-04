@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/images/logo.png";
 import SignUp from "../../pages/Auth/SignUp/SignUp";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -21,9 +21,9 @@ function Header() {
       <nav>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#">
+          <Link to="/" className={styles.navLink}>
               Home
-            </a>
+            </Link>
           </li>
           <li className={styles.navItem}>
             <Link to="/consultation" className={styles.navLink}>
