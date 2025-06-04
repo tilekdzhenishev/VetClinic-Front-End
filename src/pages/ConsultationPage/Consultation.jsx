@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./Consultation.css";
 import Header from "../../components/Header/header";
 import Footer from "../HomePage/components/Footer";
-import consultImg from "../../assets/consult-2.png";
-import clinicImg from "../../assets/consult-3.png";
+import consultImg from "../../assets/images/consult-2.png";
+import clinicImg from "../../assets/images/consult-3.png";
 import MultiStepFormModal from "../../components/BookingForm/BookingFrom";
 
 

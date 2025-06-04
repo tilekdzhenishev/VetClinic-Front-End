@@ -7,10 +7,8 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
 
   const handleSubmit = async () => {
     try {
-      // 1. Получаем токен из localStorage
-      const token = localStorage.getItem('token'); // Убедитесь, что 'token' - это правильный ключ
+      const token = localStorage.getItem("token");
 
-      // Проверяем, есть ли токен. Если нет, возможно, пользователь не залогинен.
       if (!token) {
         throw new Error("User not authenticated. Please log in.");
       }
@@ -21,8 +19,8 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            // 2. Добавляем заголовок Authorization с токеном
-            "Authorization": `Bearer ${token}`
+
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(formData),
         }
@@ -31,9 +29,10 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
       const data = await res.json();
 
       if (!res.ok) {
-        // Улучшенное сообщение об ошибке для 401
         if (res.status === 401) {
-          throw new Error("Unauthorized: Please log in again or check your permissions.");
+          throw new Error(
+            "Unauthorized: Please log in again or check your permissions."
+          );
         }
         throw new Error(data.message || "Failed to create appointment");
       }
@@ -41,7 +40,7 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
       alert("Appointment created successfully!");
       handleClose();
     } catch (error) {
-      console.error("Booking error:", error); // Логируем полную ошибку для отладки
+      console.error("Booking error:", error);
       alert("Error: " + error.message);
     }
   };

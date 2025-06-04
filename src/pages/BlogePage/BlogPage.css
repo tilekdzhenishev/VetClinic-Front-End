@@ -1,0 +1,103 @@
+
+.blog-page {
+  font-family: sans-serif;
+  color: #2d3748;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: white;
+}
+
+.hero-logo {
+  width: 8rem;
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: 4rem 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.clinic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .clinic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.clinic-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clinic-card img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.clinic-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.faq-question {
+  padding: 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-answer {
+  padding: 0.5rem 0;
+  color: #4a5568;
+}
+
+.footer {
+  background-color: #f7fafc;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #a0aec0;
+}

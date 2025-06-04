@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Benefits.module.css";
-import benefitsImage from "../../../assets/benefits-block.png";
+import benefitsImage from "../../../assets/images/benefits-block.png";
 
 const Benefits = () => {
   return (

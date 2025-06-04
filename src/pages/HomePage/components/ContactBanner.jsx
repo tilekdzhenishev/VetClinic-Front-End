@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ContactBanner.module.css";
-import contactImage from "../../../assets/contact-image.png"; // Замініть на фактичний шлях до зображення собачки
+import contactImage from "../../../assets/images/contact-image.png"; 
 
 const ContactBanner = () => {
   return (

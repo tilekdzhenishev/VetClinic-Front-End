@@ -3,7 +3,7 @@
 }
 
 .hero {
-  background: url("../../assets/Header.png") center center/cover no-repeat;
+  background: url("../../../src/assets/images/Header.png") center center/cover no-repeat;
   color: white;
   height: 100vh;
   display: flex;

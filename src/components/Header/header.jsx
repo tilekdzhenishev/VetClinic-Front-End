@@ -31,9 +31,9 @@ function Header() {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#">
+          <Link to="/blog-page" className={styles.navLink}>
               Blog
-            </a>
+            </Link>
           </li>
           <li className={styles.navItem}>
             <a className={styles.navLink} href="#">

@@ -3,7 +3,7 @@
   width: 100vw;
   height: 80vh;
   margin: 0;
-  background-image: url('../../../assets/hero-bg.png'); 
+  background-image: url('../../../../src/assets/images/hero-bg.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
