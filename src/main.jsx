@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword.jsx";
 import Consultation from "./pages/ConsultationPage/Consultation.jsx";
 import BlogPage from "./pages/BlogePage/Blog-Page.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/blog-page" element={<BlogPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </Provider>

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./SignUp.css";
-import { Route, useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
+import Spinner from '../../../components/Spinner/Spinnner'; 
 
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // <-- 2. Add loading state
 
   const navigate = useNavigate();
 
@@ -24,6 +24,9 @@ function SignUp() {
       return;
     }
 
+    setLoading(true); // <-- Set loading to true before the request
+    setError(""); // Clear previous errors
+
     try {
       const res = await fetch(
         "https://vetclinic-back-end.onrender.com/api/auth/register",
@@ -38,17 +41,22 @@ function SignUp() {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "SignUp failed");
+        // Improved error handling for more informative messages
+        if (res.status === 409) { // Example: Conflict if user already exists
+            throw new Error("User with this email already exists.");
+        }
+        throw new Error(data.message || "Sign up failed");
       } else {
-        console.log(data);
+        console.log(data); // Log success data
       }
 
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", data.token); 
       navigate("/home");
     } catch (error) {
+      console.error("Sign up error:", error); 
       setError(error.message);
     } finally {
-      setLoading(false);
+      setLoading(false); 
     }
   };
 
@@ -58,12 +66,14 @@ function SignUp() {
         <div className="left_container">
           <form className="form" onSubmit={handleSignup}>
             <h1>Get Started Now</h1>
+            {error && <p style={{ color: "red" }}>{error}</p>} 
             <label htmlFor="name">Name</label>
             <input
               id="name"
               type="text"
               placeholder="Enter your name"
               onChange={(e) => setName(e.target.value)}
+              disabled={loading} 
             />
             <label htmlFor="email">Email Address</label>
             <input
@@ -71,6 +81,7 @@ function SignUp() {
               type="email"
               placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading} 
             />
             <label htmlFor="password">Password</label>
             <input
@@ -78,13 +89,21 @@ function SignUp() {
               type="password"
               placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
+              disabled={loading} 
             />
             <div className="checkbox-component">
-              <input type="checkbox" />
+              <input type="checkbox" disabled={loading} />
               <p>I agree to the terms & policy</p>
             </div>
-            <button type="submit" className="btn">
-              Sign up
+            <button type="submit" className="btn" disabled={loading}> 
+              {loading ? (
+           
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                  Signing up... <Spinner size="20px" color="#FFF" />
+                </div>
+              ) : (
+                'Sign up'
+              )}
             </button>
 
             <div className="login__block">
@@ -97,6 +116,8 @@ function SignUp() {
         </div>
         <div className="right_container"> </div>
       </div>
+      
+      {loading && <Spinner asOverlay color="#FFD700" />} 
     </div>
   );
 }

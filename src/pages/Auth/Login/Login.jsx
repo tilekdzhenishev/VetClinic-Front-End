@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Route, useNavigate } from "react-router"; // Route здесь не используется, можете удалить
+import { Route, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import Spinner from '../../../components/Spinner/Spinnner'; // <-- 1. Импортируем Spinner
+import Spinner from "../../../components/Spinner/Spinnner";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // <-- 2. Новое состояние для загрузки
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -19,8 +19,8 @@ function Login() {
       return;
     }
 
-    setLoading(true); // <-- 3. Устанавливаем loading в true перед запросом
-    setError(""); // Сбрасываем предыдущие ошибки при новой попытке
+    setLoading(true);
+    setError("");
 
     try {
       const res = await fetch(
@@ -36,7 +36,6 @@ function Login() {
       const data = await res.json();
 
       if (!res.ok) {
-        // Улучшенная обработка ошибок для более информативного сообщения
         if (res.status === 401) {
           throw new Error("Invalid credentials. Please try again.");
         }
@@ -46,10 +45,10 @@ function Login() {
       localStorage.setItem("token", data.token);
       navigate("/home");
     } catch (error) {
-      console.error("Login error:", error); // Логируем полную ошибку для отладки
+      console.error("Login error:", error);
       setError(error.message);
     } finally {
-      setLoading(false); // <-- 4. Устанавливаем loading в false после завершения (успеха или ошибки)
+      setLoading(false);
     }
   };
 
@@ -67,7 +66,7 @@ function Login() {
               type="email"
               placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
-              disabled={loading} // Отключаем поля во время загрузки
+              disabled={loading}
             />
             <div className="login_forgot_password">
               <label htmlFor="password">Password</label>
@@ -80,19 +79,25 @@ function Login() {
               type="password"
               placeholder="Enter your password"
               onChange={(e) => setPassword(e.target.value)}
-              disabled={loading} // Отключаем поля во время загрузки
+              disabled={loading}
             />
             <div className="checkbox-login">
-              <input type="checkbox" name="" id="" disabled={loading} /> {/* Отключаем чекбокс */}
+              <input type="checkbox" name="" id="" disabled={loading} />
               <p>I agree to the terms & policy</p>
             </div>
-            <button type="submit" className="btn" disabled={loading}> {/* <-- 5. Отключаем кнопку во время загрузки */}
+            <button type="submit" className="btn" disabled={loading}>
               {loading ? (
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  Logging in... <Spinner size="20px" color="#FFF" /> {/* Спиннер в кнопке */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                  }}>
+                  Logging in... <Spinner size="20px" color="#FFF" />
                 </div>
               ) : (
-                'Login'
+                "Login"
               )}
             </button>
 
@@ -106,8 +111,8 @@ function Login() {
         </div>
         <div className="right_container_login"> </div>
       </div>
-      {/* <-- 6. Условный рендеринг полноэкранного спиннера-оверлея --> */}
-      {loading && <Spinner asOverlay color="#FFD700" />} {/* Желтый спиннер на оверлее */}
+
+      {loading && <Spinner asOverlay color="#FFD700" />}
     </div>
   );
 }
