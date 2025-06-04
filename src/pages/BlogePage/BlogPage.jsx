@@ -41,7 +41,7 @@ const faqs = [
   },
 ];
 
-export default function Blog() {
+export default function BlogPage() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
