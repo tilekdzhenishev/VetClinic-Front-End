@@ -1,0 +1,160 @@
+.reportsContainer {
+  padding: 20px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pageTitle {
+  font-size: 2em;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.reportCard {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px var(--box-shadow-light);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reportCard:hover {
+  box-shadow: 0 6px 12px var(--box-shadow-medium);
+  transform: translateY(-2px);
+}
+
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reportId {
+  font-weight: 700;
+  color: var(--accent-blue);
+  font-size: 1.1em;
+}
+
+.reportDate {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
+
+.reportContent {
+  text-align: left;
+}
+
+.reportPetType {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.reportIssue {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Стили для модального окна подробностей */
+.modalTitle {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.modalDetail {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.modalCloseButton {
+  background-color: var(--accent-blue);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.modalCloseButton:hover {
+  background-color: var(--accent-blue-dark);
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+  .reportsContainer {
+    padding: 15px;
+  }
+
+  .pageTitle {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .sectionTitle {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  .reportCard {
+    padding: 15px;
+  }
+
+  .reportId {
+    font-size: 1em;
+  }
+
+  .reportDate {
+    font-size: 0.85em;
+  }
+
+  .reportPetType {
+    font-size: 0.95em;
+  }
+
+  .reportIssue {
+    font-size: 0.85em;
+  }
+
+  .modalTitle {
+    font-size: 1.5em;
+  }
+
+  .modalDetail {
+    font-size: 1em;
+  }
+
+  .modalCloseButton {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}

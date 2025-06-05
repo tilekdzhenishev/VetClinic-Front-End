@@ -1,9 +1,8 @@
 .heroSection {
   position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 80vh; 
   margin: 0;
-  background-image: url('../../../assets/hero-bg.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,24 +10,95 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 20px; 
-  padding-bottom: 120px; 
-  padding-left: 80px;
+  padding: 2vw; 
+  padding-bottom: 5vh;
+  padding-left: 5vw;
+  box-sizing: border-box; 
 }
 
 .heroTitle {
-  font-size: 5em;
+  font-size: 4.5vw;
   font-weight: bold;
   color: white;
-  margin-bottom: 1px;
-  line-height: 0.2; 
+  margin-bottom: 0.5vw;
+  line-height: 1.1; 
+  white-space: nowrap;
 }
 
 .heroSubtitle {
-  font-size: 3em; 
+  font-size: 2.8vw;
   color: white;
+  line-height: 1.2; 
+  white-space: nowrap;
 }
 
 .heroImageContainer {
-  display: none;
+  display: none; 
+}
+
+
+@media (min-width: 1920px) {
+  .heroTitle {
+    font-size: 90px;
+    white-space: normal;
+  }
+  .heroSubtitle {
+    font-size: 55px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1919px) { 
+    .heroTitle {
+        font-size: 4.5vw;
+    }
+    .heroSubtitle {
+        font-size: 2.8vw;
+    }
+}
+
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding-bottom: 10vh;
+    padding-left: 6vw;
+  }
+  .heroTitle {
+    font-size: 6vw; 
+    white-space: normal; 
+  }
+  .heroSubtitle {
+    font-size: 3.5vw;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) { 
+  .heroSection {
+    height: 70vh; 
+    padding-bottom: 8vh; 
+    padding-left: 5vw;
+  }
+  .heroTitle {
+    font-size: 8vw; 
+    line-height: 1.1;
+  }
+  .heroSubtitle {
+    font-size: 5vw; 
+  }
+}
+
+@media (max-width: 480px) { 
+  .heroSection {
+    height: 60vh; 
+    padding-bottom: 7vh; 
+    padding-left: 4vw;
+  }
+  .heroTitle {
+    font-size: 10vw; 
+    line-height: 1; 
+  }
+  .heroSubtitle {
+    font-size: 6.5vw; 
+  }
 }

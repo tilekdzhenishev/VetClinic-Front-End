@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './Hero.module.css';
+import heroBg from '../../../assets/hero-bg.png';
 
 const Hero = () => {
   return (
-    <section className={styles.heroSection}>
-      <h1 className={styles.heroTitle}>Ensuring your pets</h1>
-      <h2 className={styles.heroSubtitle}>live their best lives</h2>
+    <section
+      className={styles.heroSection}
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
+      <div className={styles.heroContent}>
+        <h1 className={styles.heroTitle}>Ensuring your pets live their best lives</h1>
+      </div>
     </section>
   );
 };
