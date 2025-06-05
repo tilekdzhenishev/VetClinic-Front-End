@@ -1,6 +1,7 @@
 import React from "react";
 import "./Error404.css";
-import errorImage from "../assets/error-image.png";
+import plugImage from "../assets/plugs.png";
+import verifiedIcon from "../assets/verified.png"
 
 const Error404 = () => {
   return (
