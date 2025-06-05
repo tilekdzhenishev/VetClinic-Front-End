@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./Mid.module.css";
-import midImage from "../../../assets/mid-image.png";
+import React from 'react';
+import styles from './Mid.module.css';
+import midImage from '../../../assets/mid-image.png';
 
 const Mid = () => {
   return (

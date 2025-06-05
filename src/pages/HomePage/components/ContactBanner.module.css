@@ -1,159 +1,74 @@
 .contactBanner {
   background-color: #1A3765;
-  padding: 5rem 3rem;
-  color: white;
-  max-width: 1440px;
-  margin: 3rem auto;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  padding: 120px 60px;
+  color: white; 
+  max-width: 2000px;
+  margin: 20px auto; 
+  border-radius: 16px;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
 }
 
 .textContainer {
   flex: 1;
-  min-width: 40%;
+  padding-right: 40px;
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 5.2em;
   font-weight: 700;
-  margin-bottom: 2.5rem;
-  line-height: 1.15;
-}
-
-.titleBlock {
-  display: block;
-  margin-top: 0.75rem;
+  margin-bottom: 80px;
+  line-height: 0.4;
 }
 
 .contactInfo {
-  font-size: 1.35rem;
-  line-height: 1.7;
+  margin-top: px;
+  font-size: 2.2em;
+  line-height: 1.5;
 }
 
 .contactInfo p {
   font-weight: 500;
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
 .icon {
-  margin-right: 1.2rem;
-  font-size: 1.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-right: 10px;
+  font-size: 1.2em;
 }
 
 .imageContainer {
   flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  min-width: 45%;
+  text-align: right;
 }
 
 .contactImage {
   max-width: 100%;
-  height: auto;
-  max-height: 450px;
-  border-radius: 1.25rem;
-  box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3);
-  object-fit: cover;
-}
-
-@media (max-width: 1200px) {
-  .contactBanner {
-    padding: 4rem 2.5rem;
-    margin: 2.5rem auto;
-  }
-  .title {
-    font-size: 3.5rem;
-  }
-  .contactInfo {
-    font-size: 1.25rem;
-  }
-  .contactImage {
-    max-height: 400px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .contactBanner {
-    padding: 3.5rem 2rem;
-    margin: 2rem auto;
-  }
-  .title {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
-  .contactInfo {
-    font-size: 1.15rem;
-  }
-  .contactImage {
-    max-height: 350px;
-  }
+  height: 600px;
+  border-radius: 16px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    gap: 2.5rem;
-  }
-  .textContainer {
     text-align: center;
-    margin-bottom: 0;
-    min-width: unset;
   }
-  .title {
-    font-size: 2.5rem;
-  }
-  .contactInfo p {
-    justify-content: center;
-  }
-  .imageContainer {
-    justify-content: center;
-    width: 100%;
-    min-width: unset;
-  }
-  .contactImage {
-    max-width: 90%;
-    max-height: 300px;
-  }
-}
 
-@media (max-width: 480px) {
-  .contactBanner {
-    padding: 2.5rem 1.25rem;
-    margin: 1.5rem;
-    border-radius: 1rem;
+  .textContainer {
+    padding-right: 0;
+    margin-bottom: 30px;
   }
-  .title {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+
+  .imageContainer {
+    text-align: center;
   }
-  .titleBlock {
-    margin-top: 0.5rem;
-  }
-  .contactInfo {
-    font-size: 1rem;
-  }
-  .contactInfo p {
-    margin-bottom: 0.8rem;
-  }
-  .icon {
-    margin-right: 0.8rem;
-    font-size: 1.1rem;
-  }
+
   .contactImage {
-    max-width: 100%;
-    max-height: 250px;
+    max-width: 80%;
   }
 }

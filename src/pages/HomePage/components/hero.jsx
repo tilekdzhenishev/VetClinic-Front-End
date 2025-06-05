@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Hero.module.css';
-import heroBg from '../../../assets/hero-bg.png';
 
 const Hero = () => {
   return (

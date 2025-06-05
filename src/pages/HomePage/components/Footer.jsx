@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Footer.module.css";
-import facebookIcon from "../../../assets/facebook.png";
-import instagramIcon from "../../../assets/instagram.png";
+import React from 'react';
+import styles from './Footer.module.css';
+import facebookIcon from '../../../assets/facebook.png';
+import instagramIcon from '../../../assets/instagram.png';
 
 const Footer = () => {
   return (

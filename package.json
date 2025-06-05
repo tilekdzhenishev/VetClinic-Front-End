@@ -10,11 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/core": "^8.0.0",
+    "@mantine/dates": "^8.0.0",
+    "@mantine/hooks": "^8.0.0",
     "@reduxjs/toolkit": "^2.6.1",
-    "leaflet": "^1.9.4",
     "react": "^19.0.0",
+    "react-calendar": "^5.1.0",
+    "react-date-picker": "^11.0.0",
+    "react-datepicker": "^8.3.0",
     "react-dom": "^19.0.0",
-    "react-leaflet": "^5.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.30.0"
   },

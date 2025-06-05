@@ -1,0 +1,171 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+span {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+
+.login-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.left_container_login {
+  width: 50%;
+  height: 100vh;
+}
+
+.right_container_login {
+  width: 50%;
+  height: 100vh;
+  background-image: url("../../../assets/images/login_dog.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px 0 0 40px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 400px;
+}
+
+.login-form > label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-form > input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.login-form > input:focus {
+  outline: none;
+  border-color: #30459d;
+  box-shadow: 0 0 0 2px rgba(48, 69, 157, 0.2);
+}
+
+.checkbox-login {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-login > p {
+  font-size: 14px;
+  position: relative;
+  top: 5px;
+}
+
+.checkbox-login > input {
+  width: 15px;
+}
+
+.login-button {
+  background-color: #30459d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #253a85;
+}
+
+.login-footer {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.login-footer p {
+  margin: 0;
+}
+
+.signup-link {
+  margin-left: 5px;
+  color: #30459d;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+.login_forgot_password {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 5px;
+}
+
+.forgot_pass {
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .login-container {
+    width: 100%;
+  }
+
+  .login-container.right {
+    height: 30vh;
+    border-radius: 0 0 40px 40px;
+  }
+
+  .login-form {
+    width: 80%;
+    padding: 30px 0;
+  }
+  .right_container_login {
+    display: none;
+  }
+
+  .left_container_login {
+    width: 100vh;
+    margin-top: 20%;
+  }
+}
