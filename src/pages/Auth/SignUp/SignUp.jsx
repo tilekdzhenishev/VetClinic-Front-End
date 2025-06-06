@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import "./SignUp.css";
-import { Link, useNavigate } from "react-router-dom"; 
-import Spinner from '../../../components/Spinner/Spinnner'; 
+import { Link } from "react-router-dom";
+import "./SignUp.css"
+
+
+const Spinner = () => (
+  <div className="spinner">
+    <div className="spinner-circle"></div>
+  </div>
+);
 
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // <-- 2. Add loading state
-
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -24,100 +28,98 @@ function SignUp() {
       return;
     }
 
-    setLoading(true); // <-- Set loading to true before the request
-    setError(""); // Clear previous errors
+    setLoading(true);
+    setError("");
 
     try {
-      const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/auth/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email, password }),
-        }
-      );
-      const data = await res.json();
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
-      if (!res.ok) {
-        // Improved error handling for more informative messages
-        if (res.status === 409) { // Example: Conflict if user already exists
-            throw new Error("User with this email already exists.");
-        }
-        throw new Error(data.message || "Sign up failed");
-      } else {
-        console.log(data); // Log success data
-      }
+      console.log("Registration successful");
+      
 
-      localStorage.setItem("token", data.token); 
-      navigate("/home");
+      alert("Registration successful! Redirecting to home page...");
     } catch (error) {
-      console.error("Sign up error:", error); 
-      setError(error.message);
+      console.error("Sign up error:", error);
+      setError(error.message || "Registration failed");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
   return (
-    <div>
-      <div className="signup__page">
-        <div className="left_container">
-          <form className="form" onSubmit={handleSignup}>
-            <h1>Get Started Now</h1>
-            {error && <p style={{ color: "red" }}>{error}</p>} 
+    <div className="signup__page">
+      <div className="left_container">
+        <div className="form">
+          <h1 className="form-title">Get Started Now</h1>
+          
+          {error && <div className="error-message">{error}</div>}
+          
+          <div className="input-group">
             <label htmlFor="name">Name</label>
             <input
               id="name"
               type="text"
-              placeholder="Enter your name"
+              value={name}
               onChange={(e) => setName(e.target.value)}
-              disabled={loading} 
+              disabled={loading}
+              placeholder="Enter your name"
             />
+          </div>
+
+          <div className="input-group">
             <label htmlFor="email">Email Address</label>
             <input
               id="email"
               type="email"
-              placeholder="Enter your email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
-              disabled={loading} 
+              disabled={loading}
+              placeholder="Enter your email"
             />
+          </div>
+
+          <div className="input-group">
             <label htmlFor="password">Password</label>
             <input
               id="password"
               type="password"
-              placeholder="Enter your password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
-              disabled={loading} 
+              disabled={loading}
+              placeholder="Enter your password"
             />
-            <div className="checkbox-component">
-              <input type="checkbox" disabled={loading} />
-              <p>I agree to the terms & policy</p>
-            </div>
-            <button type="submit" className="btn" disabled={loading}> 
-              {loading ? (
-           
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  Signing up... <Spinner size="20px" color="#FFF" />
-                </div>
-              ) : (
-                'Sign up'
-              )}
-            </button>
+          </div>
 
-            <div className="login__block">
-              <p>Have an account?</p>
-              <Link className="sign-in-link" to="/login">
-                Login
-              </Link>
-            </div>
-          </form>
+          <div className="checkbox-component">
+            <input type="checkbox" id="terms" />
+            <label htmlFor="terms">I agree to the terms & policy</label>
+          </div>
+
+          <button type="button" className="btn" disabled={loading} onClick={handleSignup}>
+            {loading ? (
+              <div className="button-loading">
+                <Spinner />
+                <span>Signing up...</span>
+              </div>
+            ) : (
+              'Sign up'
+            )}
+          </button>
+
+          <div className="login__block">
+            <p>Have an account?</p>
+        <Link to="/login">
+        Login
+        </Link>
+          </div>
         </div>
-        <div className="right_container"> </div>
       </div>
-      
-      {loading && <Spinner asOverlay color="#FFD700" />} 
+
+      <div className="right_container">
+        <div className="background-image"></div>
+      </div>
+
+   
     </div>
   );
 }

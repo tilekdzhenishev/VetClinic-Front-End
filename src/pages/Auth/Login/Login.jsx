@@ -53,47 +53,56 @@ function Login() {
   };
 
   return (
-    <div>
-      <div className="login-page">
-        <div className="left_container_login">
-          <form className="form" onSubmit={handleLogin}>
-            <h1>Welcome back!</h1>
-            <span>Enter your Credentials to access your account</span>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Enter your email"
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={loading}
-            />
-            <div className="login_forgot_password">
-              <label htmlFor="password">Password</label>
-              <Link className="forgot_pass" to="/forgot-password">
-                forgot password
-              </Link>
+    <div className="login-page">
+      <div className="left_container_login">
+        <div className="form-wrapper">
+          <form className="login-form" onSubmit={handleLogin}>
+            <div className="form-header">
+              <h1>Welcome back!</h1>
+              <span>Enter your Credentials to access your account</span>
             </div>
-            <input
-              id="password"
-              type="password"
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-              disabled={loading}
-            />
+            
+            {error && <div className="error-message">{error}</div>}
+            
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <div className="login_forgot_password">
+                <label htmlFor="password">Password</label>
+                <Link className="forgot_pass" to="/forgot-password">
+                  forgot password
+                </Link>
+              </div>
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
+                required
+              />
+            </div>
+
             <div className="checkbox-login">
-              <input type="checkbox" name="" id="" disabled={loading} />
-              <p>I agree to the terms & policy</p>
+              <input type="checkbox" id="terms" disabled={loading} />
+              <label htmlFor="terms">I agree to the terms & policy</label>
             </div>
-            <button type="submit" className="btn" disabled={loading}>
+
+            <button type="submit" className="login-button" disabled={loading}>
               {loading ? (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "8px",
-                  }}>
+                <div className="button-loading">
                   Logging in... <Spinner size="20px" color="#FFF" />
                 </div>
               ) : (
@@ -101,17 +110,18 @@ function Login() {
               )}
             </button>
 
-            <div className="login__block">
+            <div className="login-footer">
               <p>Don't have an account?</p>
-              <Link className="sign-in-link" to="/signup">
+              <Link className="signup-link" to="/signup">
                 Sign Up
               </Link>
             </div>
           </form>
         </div>
-        <div className="right_container_login"> </div>
       </div>
-
+      
+      <div className="right_container_login"></div>
+      
       {loading && <Spinner asOverlay color="#FFD700" />}
     </div>
   );
