@@ -1,62 +1,79 @@
+/* Simple Footer Styles */
 .footer {
   background-color: #f9f9f9;
-  padding: 40px 20px;
+  padding: 40px 20px 20px;
+  color: #333;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Main Footer Content */
+.footerContent {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
-.leftSection,
-.middleSection,
-.rightSection {
-  text-align: left;
+.section {
+  display: flex;
+  flex-direction: column;
 }
 
-.clinicName,
-.stayConnected,
-.joinUs {
-  font-size: 1.2em;
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
+/* Links List */
 .linksList {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.listItem {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .link {
+  color: #666;
   text-decoration: none;
-  color: #555;
-  font-size: 1em;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
 .link:hover {
-  color: #007bff;
+  color: #333;
 }
 
-.contactEmail {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 10px;
+/* Contact Info */
+.contactInfo {
+  margin-bottom: 20px;
 }
 
-.contactEmail a {
-  color: #007bff;
+.contactText {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.emailLink {
+  color: #666;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.emailLink:hover {
+  color: #333;
+}
+
+/* Social Icons */
 .socialIcons {
   display: flex;
   gap: 15px;
@@ -64,64 +81,131 @@
 }
 
 .socialLink {
-  text-decoration: none;
-  color: #555;
   display: inline-flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
-.icon {
+.socialLink:hover {
+  opacity: 0.7;
+}
+
+.socialIcon {
   width: 24px;
   height: 24px;
 }
 
-.ourServices {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 20px;
+/* Services Text */
+.servicesText {
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+  color: #666;
 }
 
+/* Booking Button */
 .bookingButton {
   background-color: white;
-  color: #007bff;
-  border: 1px solid #007bff;
+  color: #333;
+  border: 1px solid #ddd;
   padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1em;
+  border-radius: 20px;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  font-weight: 500;
 }
 
 .bookingButton:hover {
-  background-color: #007bff;
-  color: white;
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+/* Bottom Section */
+.bottomSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.9rem;
+  color: #888;
 }
 
 .copyright {
-  text-align: center;
-  font-size: 0.9em;
-  color: #777;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
+  color: #888;
+}
+
+.separator {
+  color: #ccc;
 }
 
 .privacyLink {
-  color: #777;
+  color: #888;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .privacyLink:hover {
-  color: #007bff;
+  color: #333;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
+  .footer {
+    padding: 30px 15px 15px;
+  }
+  
+  .footerContent {
     grid-template-columns: 1fr;
+    gap: 30px;
     text-align: center;
   }
-  .leftSection,
-  .middleSection,
-  .rightSection {
+  
+  .section {
+    align-items: center;
+  }
+  
+  .linksList {
+    align-items: center;
+  }
+  
+  .socialIcons {
+    justify-content: center;
+  }
+  
+  .bottomSection {
+    justify-content: center;
     text-align: center;
-    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 25px 10px 10px;
+  }
+  
+  .footerContent {
+    gap: 25px;
+  }
+  
+  .sectionTitle {
+    font-size: 1rem;
+  }
+  
+  .bookingButton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .bottomSection {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .separator {
+    display: none;
   }
 }

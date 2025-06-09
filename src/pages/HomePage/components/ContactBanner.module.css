@@ -1,137 +1,203 @@
+.contactSection {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+}
+
 .contactBanner {
-  background-color: #1A3765;
-  padding: 4rem 2rem;
-  color: white;
   max-width: 1280px;
-  margin: 1.5rem auto;
-  border-radius: 1rem;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1A3765 0%, #2c5aa0 100%);
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
+  padding: 3rem;
 }
 
 .textContainer {
-  flex: 1;
+  color: white;
 }
 
 .title {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   line-height: 1.2;
 }
 
 .titleBlock {
   display: block;
+  color: #87ceeb;
   margin-top: 0.5rem;
 }
 
 .contactInfo {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  margin-bottom: 2.5rem;
 }
 
-.contactInfo p {
-  font-weight: 500;
-  margin-bottom: 1rem;
+.contactItem {
   display: flex;
   align-items: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .icon {
   margin-right: 1rem;
-  font-size: 1.25rem;
-  display: inline-flex;
+  font-size: 1.5rem;
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.contactText {
+  color: white;
+}
+
+.contactButton {
+  background-color: white;
+  color: #1A3765;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contactButton:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .imageContainer {
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .contactImage {
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   height: auto;
-  max-height: 400px;
-  border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   object-fit: cover;
 }
 
 /* Responsive styles */
 @media (max-width: 1024px) {
-  .contactBanner {
-    padding: 3rem 1.5rem;
+  .contactSection {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .container {
+    padding: 2.5rem;
+    gap: 2.5rem;
   }
   
   .title {
     font-size: 2.5rem;
   }
   
-  .contactInfo {
-    font-size: 1.125rem;
-  }
-  
-  .contactImage {
-    max-height: 350px;
+  .contactItem {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .textContainer {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .title {
-    font-size: 2.25rem;
+  .contactSection {
+    padding: 2rem 1rem;
   }
   
-  .contactInfo p {
-    justify-content: center;
+  .contactBanner {
+    border-radius: 16px;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .textContainer {
+    order: 1;
   }
   
   .imageContainer {
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .contactImage {
-    max-width: 80%;
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contactBanner {
-    padding: 2.5rem 1rem;
-    margin: 1rem;
-    border-radius: 0.75rem;
+    order: 2;
   }
   
   .title {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
   }
   
   .contactInfo {
+    margin-bottom: 2rem;
+  }
+  
+  .contactItem {
+    justify-content: center;
     font-size: 1rem;
   }
   
   .contactImage {
-    max-width: 100%;
-    max-height: 250px;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    padding: 1.5rem 1rem;
+  }
+  
+  .contactBanner {
+    border-radius: 12px;
+  }
+  
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contactItem {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  .icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+  
+  .contactButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .contactImage {
+    max-width: 250px;
   }
 }

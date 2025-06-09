@@ -25,11 +25,14 @@ const Mid = () => {
           </p>
         </div>
         <div className={styles.imageContainer}>
-          <img
-            src={midImage}
-            alt="Veterinarian with a dog"
-            className={styles.midImage}
-          />
+          <div className={styles.imageWrapper}>
+            <img
+              src={midImage}
+              alt="Veterinarian with a dog"
+              className={styles.midImage}
+            />
+            <div className={styles.decorativeElement}></div>
+          </div>
         </div>
       </div>
     </section>
