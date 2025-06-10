@@ -2,51 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import logo from "../../assets/images/logo.png";
 import { useNavigate } from "react-router";
-import { History } from "../../components/Profile/HistoryComponent/History"; 
+import { History } from "../../components/Profile/HistoryComponent/History";
 import { Settings } from "../../components/Profile/SettingsComponent/Settings";
 
 
 const Profile = () => {
-  const currentBookings = [
-    {
-      id: "#2F543",
-      date: "24/07/2025",
-      pet: "Golden Retriever",
-      issue: "Swollen in leg for 3 days",
-    },
-    {
-      id: "#63A023",
-      date: "13/09/2025",
-      pet: "Maine Coon",
-      issue: "Overgrown teeth causing difficulty eating",
-    },
-  ];
 
-  const previousAppointments = [
-    {
-      id: "#33567S",
-      date: "20/08/2023",
-      pet: "Siamese",
-      issue: "Vomiting after eating for two days",
-    },
-    {
-      id: "#95F283",
-      date: "13/06/2021",
-      pet: "French Bulldog",
-      issue: "Loss of appetite and lethargy",
-    },
-    {
-      id: "#7A7560",
-      date: "26/02/2021",
-      pet: "Maine Coon",
-      issue: "Difficulty breathing for a week",
-    },
-  ];
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-  const [activeSection, setActiveSection] = useState("history"); 
+  const [activeSection, setActiveSection] = useState("history");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,11 +49,11 @@ const Profile = () => {
   const renderActiveComponent = () => {
     switch (activeSection) {
       case "history":
-        return <History currentBookings={currentBookings} previousAppointments={previousAppointments} />;
+        return <History  />;
       case "settings":
         return <Settings />;
       default:
-        return <History currentBookings={currentBookings} previousAppointments={previousAppointments} />;
+        return <History  />;
     }
   };
 
@@ -99,13 +65,13 @@ const Profile = () => {
         </div>
 
         <nav className="nav-menu">
-          <div 
+          <div
             className={`nav-item ${activeSection === "history" ? "active" : ""}`}
             onClick={() => handleNavClick("history")}
           >
             <span className="nav-text">History</span>
           </div>
-          <div 
+          <div
             className={`nav-item ${activeSection === "settings" ? "active" : ""}`}
             onClick={() => handleNavClick("settings")}
           >
@@ -124,7 +90,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="back-button">
+          <div className="back-button" onClick={() => navigate(-1)}>
             <span className="back-icon">←</span>
             <span className="back-text">Back</span>
           </div>
