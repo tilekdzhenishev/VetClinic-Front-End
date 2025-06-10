@@ -10,7 +10,6 @@ function Header() {
   const [user, setUser] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // Проверяем авторизацию при загрузке компонента
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("user");
@@ -31,10 +30,8 @@ function Header() {
     e.preventDefault();
 
     if (isAuthenticated) {
-      // Если авторизован, переходим к профилю
       navigate("/profile");
     } else {
-      // Если не авторизован, переходим к регистрации
       navigate("/signup");
     }
   };

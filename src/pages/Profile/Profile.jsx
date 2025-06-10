@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import logo from "../../assets/images/logo.png";
+import { useNavigate } from "react-router";
+import { History } from "../../components/Profile/HistoryComponent/History"; 
+import { Settings } from "../../components/Profile/SettingsComponent/Settings";
+
 
 const Profile = () => {
   const currentBookings = [
@@ -39,6 +43,54 @@ const Profile = () => {
     },
   ];
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [activeSection, setActiveSection] = useState("history"); 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const userData = localStorage.getItem("user");
+
+    if (token) {
+      setIsAuthenticated(true);
+      if (userData) {
+        try {
+          setUser(JSON.parse(userData));
+        } catch (error) {
+          console.error("Error parsing user data:", error);
+        }
+      }
+    } else {
+      navigate("/");
+    }
+
+    setIsCheckingAuth(false);
+  }, []);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+  };
+
+
+  const renderActiveComponent = () => {
+    switch (activeSection) {
+      case "history":
+        return <History currentBookings={currentBookings} previousAppointments={previousAppointments} />;
+      case "settings":
+        return <Settings />;
+      default:
+        return <History currentBookings={currentBookings} previousAppointments={previousAppointments} />;
+    }
+  };
+
   return (
     <div className="vet-app">
       <div className="sidebar">
@@ -47,16 +99,19 @@ const Profile = () => {
         </div>
 
         <nav className="nav-menu">
-          <div className="nav-item active">
-            <span className="nav-icon">📋</span>
+          <div 
+            className={`nav-item ${activeSection === "history" ? "active" : ""}`}
+            onClick={() => handleNavClick("history")}
+          >
             <span className="nav-text">History</span>
           </div>
-          <div className="nav-item">
-            <span className="nav-icon">⚙️</span>
+          <div 
+            className={`nav-item ${activeSection === "settings" ? "active" : ""}`}
+            onClick={() => handleNavClick("settings")}
+          >
             <span className="nav-text">Settings</span>
           </div>
-          <div className="nav-item">
-            <span className="nav-icon">🚪</span>
+          <div className="nav-item" onClick={handleLogOut}>
             <span className="nav-text">Log Out</span>
           </div>
         </nav>
@@ -76,52 +131,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="main-content">
-        <div className="header">
-          <h1 className="page-title">History</h1>
-          <div className="user-avatar">MA</div>
-        </div>
-
-        <div className="content-wrapper">
-          <div className="bookings-section">
-            <h2 className="section-title">CURRENT BOOKINGS (2)</h2>
-
-            <div className="bookings-list">
-              {currentBookings.map((booking) => (
-                <div key={booking.id} className="booking-card">
-                  <div className="booking-header">
-                    <span className="booking-id">{booking.id}</span>
-                    <span className="booking-date">{booking.date}</span>
-                  </div>
-                  <div className="booking-details">
-                    <div className="booking-pet">• {booking.pet}</div>
-                    <div className="booking-issue">• {booking.issue}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="appointments-section">
-            <h2 className="section-title">PREVIOUS APPOINTMENTS</h2>
-
-            <div className="appointments-list">
-              {previousAppointments.map((appointment) => (
-                <div key={appointment.id} className="booking-card">
-                  <div className="booking-header">
-                    <span className="booking-id">{appointment.id}</span>
-                    <span className="booking-date">{appointment.date}</span>
-                  </div>
-                  <div className="booking-details">
-                    <div className="booking-pet">• {appointment.pet}</div>
-                    <div className="booking-issue">• {appointment.issue}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      {renderActiveComponent()}
     </div>
   );
 };
