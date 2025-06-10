@@ -1,0 +1,145 @@
+.contactPage {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.heroSection {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(69, 142, 255, 0.3);
+    z-index: 1;
+}
+
+.heroOverlay {
+    position: relative;
+    z-index: 2;
+    padding: 30px 50px;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.heroSection h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.heroSection p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.contactContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: white;
+    flex-grow: 1;
+}
+
+.contactDetails {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.detailItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.detailItem .icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-top: 5px;
+}
+
+.detailItem h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.3em;
+}
+
+.detailItem p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.mapContainer {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    height: 500px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .contactContent {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 15px;
+    }
+
+    .contactDetails,
+    .mapContainer {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+
+    .heroSection {
+        padding: 60px 15px;
+        height: 300px;
+    }
+
+    .heroSection h1 {
+        font-size: 2.5em;
+    }
+
+    .heroSection p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroSection h1 {
+        font-size: 2em;
+    }
+}

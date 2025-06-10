@@ -73,9 +73,9 @@ function Header() {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#contacts">
-              Contacts
-            </a>
+          <Link to="/contacts" className={styles.navLink}>
+              Contact
+            </Link>
           </li>
         </ul>
       </nav>
