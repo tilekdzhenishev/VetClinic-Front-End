@@ -12,6 +12,7 @@ import Consultation from "./pages/ConsultationPage/Consultation.jsx";
 import BlogPage from "./pages/BlogePage/Blog-Page.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import ContactPage from "./pages/ContactPage/ContanctPage.jsx";
+import AdminApp from "./pages/AdminPage/AdminPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/blog-page" element={<BlogPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/contacts" element={<ContactPage />} />
+          <Route path="/admin" element={<AdminApp />} />
         </Routes>
       </Router>
   </StrictMode>

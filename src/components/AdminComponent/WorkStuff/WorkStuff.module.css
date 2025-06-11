@@ -1,0 +1,128 @@
+.header {
+    margin-bottom: 30px;
+  }
+  
+  .pageTitle {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .subtitle {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+  }
+  
+  .formContainer {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px var(--box-shadow-light);
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    display: block;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: var(--text-primary);
+    background-color: transparent;
+    transition: color 0.3s ease;
+  }
+  
+  .select {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: var(--text-primary);
+    background-color: transparent;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .iconButton {
+    background: none;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+  }
+  
+  .saveButton {
+    background-color: var(--accent-blue);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    align-self: flex-end;
+    transition: background-color 0.2s ease;
+  }
+  
+  .saveButton:hover {
+    background-color: var(--accent-blue-dark);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .formContainer {
+      padding: 20px;
+    }
+    .pageTitle {
+      font-size: 1.8em;
+    }
+    .input {
+      padding: 10px 12px;
+    }
+    .select {
+      padding: 10px 12px;
+    }
+    .saveButton {
+      padding: 10px 20px;
+      font-size: 1em;
+      align-self: center;
+    }
+  }

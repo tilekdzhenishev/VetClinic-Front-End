@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
-import logo from '../../../assets/logo.png';
+import logo from '../../../assets/images/logo.png';
 
-import dashboardIcon from '../../../assets/dashboard_icon.png';
-import workstaffIcon from '../../../assets/workstaff_icon.png';
-import settingsIcon from '../../../assets/settings_icon.png';
-import logoutIcon from '../../../assets/logout_icon.png';
+import dashboardIcon from '../../../assets/images/dashboard_icon.png';
+import workstaffIcon from '../../../assets/images/workstaff_icon.png';
+import settingsIcon from '../../../assets/images/settings_icon.png';
+import logoutIcon from '../../../assets/images/logout_icon.png';
 
 const translations = {
   English: {
@@ -15,22 +15,6 @@ const translations = {
     logout: 'Log Out',
     theme: 'Theme',
     back: 'Back',
-  },
-  Russian: {
-    dashboard: 'Панель',
-    workstaff: 'Сотрудники',
-    settings: 'Настройки',
-    logout: 'Выйти',
-    theme: 'Тема',
-    back: 'Назад',
-  },
-  Ukrainian: {
-    dashboard: 'Панель',
-    workstaff: 'Співробітники',
-    settings: 'Налаштування',
-    logout: 'Вийти',
-    theme: 'Тема',
-    back: 'Назад',
   },
 };
 

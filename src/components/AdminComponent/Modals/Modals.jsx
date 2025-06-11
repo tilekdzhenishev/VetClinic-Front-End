@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Modals.module.css';
-import savedSuccessIcon from '../../../assets/saved_success_icon.png';
-import logoutModalIcon from '../../../assets/logout_modal_icon.png';
-import unsavedErrorIcon from '../../../assets/unsaved_error_icon.png';
+import savedSuccessIcon from '../../../assets/images/saved_success_icon.png';
+import logoutModalIcon from '../../../assets/images/logout_modal_icon.png';
+import unsavedErrorIcon from '../../../assets/images/unsaved_error_icon.png';
 
 export const ModalOverlay = ({ children, onClose }) => {
   return (
