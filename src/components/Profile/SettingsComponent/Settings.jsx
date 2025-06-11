@@ -113,7 +113,7 @@ export const Settings = () => {
                 updateData.password = formData.password;
             }
 
-            const response = await fetch(`https://vetclinic-back-end.onrender.com/api/users/users/${userId}`, {
+            const response = await fetch(`https://vetclinic-back-end.onrender.com/api/profiles/users/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
