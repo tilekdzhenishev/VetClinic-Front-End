@@ -13,23 +13,25 @@ import BlogPage from "./pages/BlogePage/Blog-Page.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import ContactPage from "./pages/ContactPage/ContanctPage.jsx";
 import AdminApp from "./pages/AdminPage/AdminPage.jsx";
+import DoctorApp from "./pages/DoctorPage/DoctorPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/consultation" element={<Consultation />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} />
-          <Route path="/blog-page" element={<BlogPage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/contacts" element={<ContactPage />} />
-          <Route path="/admin" element={<AdminApp />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/consultation" element={<Consultation />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/blog-page" element={<BlogPage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/contacts" element={<ContactPage />} />
+        <Route path="/admin" element={<AdminApp />} />
+        <Route path="/doctor" element={<DoctorApp />} />
+      </Routes>
+    </Router>
   </StrictMode>
 );

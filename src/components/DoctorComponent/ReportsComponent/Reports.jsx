@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Reports.module.css';
-import { ModalOverlay } from '../../AdminPages/components/Modals';
+import { ModalOverlay } from '../../AdminComponent/Modals/Modals';
 const sampleReports = [];
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Calendar.module.css';
-import { ModalOverlay } from '../../AdminPages/components/Modals';
+import { ModalOverlay } from '../../AdminComponent/Modals/Modals';
 
 const Calendar = ({
   appointments = [],
