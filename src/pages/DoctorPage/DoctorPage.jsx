@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import DoctorsSidebar from './components/DoctorsSidebar'; 
-import Calendar from './components/Calendar';
-import Reports from './components/Reports'; 
-import Settings from './components/Settings';
-import { LoadingModal, SavedModal, LoggedOutModal, UnsavedModal } from '../AdminPages/components/Modals';
+import DoctorsSidebar from '../../components/DoctorComponent/Sidebar/Sidebar';
+import Calendar from '../../components/DoctorComponent/Calendar/Calendar';
+import Reports from '../../components/DoctorComponent/ReportsComponent/Reports';
+import Settings from '../../components/DoctorComponent/SettingComponent/Settings';
+import { LoadingModal, SavedModal, LoggedOutModal, UnsavedModal } from '../../components/AdminComponent/Modals/Modals';
 
 const doctorsAppStyles = {
   doctorsContainer: {
@@ -93,16 +93,16 @@ function DoctorApp() {
     const dayIndex = eventDate.getDay();
 
     setAppointments((prev) => [
-        ...prev,
-        {
-            id: Date.now(),
-            time: newEvent.time,
-            day: dayIndex,
-            pet: newEvent.pet,
-            color: newEvent.color,
-            date: newEvent.date,
-            fullDate: newEvent.date,
-        },
+      ...prev,
+      {
+        id: Date.now(),
+        time: newEvent.time,
+        day: dayIndex,
+        pet: newEvent.pet,
+        color: newEvent.color,
+        date: newEvent.date,
+        fullDate: newEvent.date,
+      },
     ]);
 
     setNewEvent({ date: '', time: '', pet: '', color: 'blue' });
@@ -210,7 +210,7 @@ function DoctorApp() {
         );
       case 'settings':
         return (
-          <Settings 
+          <Settings
             onSaveSettings={handleSaveAction}
             appLanguage={appLanguage}
             setAppLanguage={setAppLanguage}
