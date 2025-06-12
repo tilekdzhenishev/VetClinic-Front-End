@@ -49,11 +49,11 @@ const Profile = () => {
   const renderActiveComponent = () => {
     switch (activeSection) {
       case "history":
-        return <History  />;
+        return <History />;
       case "settings":
         return <Settings />;
       default:
-        return <History  />;
+        return <History />;
     }
   };
 
@@ -83,12 +83,6 @@ const Profile = () => {
         </nav>
 
         <div className="sidebar-bottom">
-          <div className="theme-toggle">
-            <span className="theme-text">Theme</span>
-            <div className="toggle-switch">
-              <div className="toggle-slider active"></div>
-            </div>
-          </div>
 
           <div className="back-button" onClick={() => navigate(-1)}>
             <span className="back-icon">←</span>

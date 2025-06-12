@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BookingForm.css";
 
-const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
+const MultiStepFormModal = ({ isOpen = true, onClose = () => { } }) => {
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState({});
 
@@ -13,27 +13,37 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => {} }) => {
         throw new Error("User not authenticated. Please log in.");
       }
 
-      const res = await fetch(
-        "https://vetclinic-back-end.onrender.com/api/appointments",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+      // Получаем userId
+      const userRes = await fetch("https://vetclinic-back-end.onrender.com/api/users/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const user = await userRes.json();
+
+      if (!user.id) {
+        throw new Error("User ID not found");
+      }
+
+
+      const requestBody = {
+        ...formData,
+        userId: user.id,
+      };
+
+      const res = await fetch("https://vetclinic-back-end.onrender.com/api/appointments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(requestBody),
+      });
 
       const data = await res.json();
 
       if (!res.ok) {
-        if (res.status === 401) {
-          throw new Error(
-            "Unauthorized: Please log in again or check your permissions."
-          );
-        }
         throw new Error(data.message || "Failed to create appointment");
       }
 
