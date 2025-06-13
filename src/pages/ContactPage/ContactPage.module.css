@@ -40,12 +40,14 @@
     font-size: 3em;
     margin-bottom: 10px;
     text-transform: uppercase;
+    padding-top: 80px;
 }
 
 .heroSection p {
     font-size: 1.2em;
     opacity: 0.9;
     color: white;
+    font-weight: bold;
 }
 
 .contactContent {

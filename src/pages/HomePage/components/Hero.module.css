@@ -26,8 +26,9 @@
 .heroContent {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 0 2rem;
+  max-width: max-content;
+  padding: 0 13rem;
+  padding-bottom: 6%;
 }
 
 .heroTitle {
