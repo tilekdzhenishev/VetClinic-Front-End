@@ -45,6 +45,7 @@
 .heroSection p {
     font-size: 1.2em;
     opacity: 0.9;
+    color: white;
 }
 
 .contactContent {
@@ -92,6 +93,7 @@
     margin: 0;
     color: #555;
     line-height: 1.6;
+    font-size: 18px;
 }
 
 .mapContainer {
