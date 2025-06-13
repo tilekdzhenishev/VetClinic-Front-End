@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUp.css"
+import { useNavigate } from "react-router-dom";
 
 
 const Spinner = () => (
@@ -16,6 +17,8 @@ function SignUp() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate()
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -23,6 +26,7 @@ function SignUp() {
       setError("All fields are required!");
       return;
     }
+
     if (!/\S+@\S+\.\S+/.test(email)) {
       setError("Please enter a valid email!");
       return;
@@ -32,12 +36,26 @@ function SignUp() {
     setError("");
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch("https://vetclinic-back-end.onrender.com/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
 
-      console.log("Registration successful");
-      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Registration failed");
+      }
 
-      alert("Registration successful! Redirecting to home page...");
+      const data = await response.json();
+      console.log("Registration successful", data);
+
+      localStorage.setItem("token", data.token);
+
+
+      navigate("/");
     } catch (error) {
       console.error("Sign up error:", error);
       setError(error.message || "Registration failed");
@@ -46,14 +64,15 @@ function SignUp() {
     }
   };
 
+
   return (
     <div className="signup__page">
       <div className="left_container">
         <div className="form">
           <h1 className="form-title">Get Started Now</h1>
-          
+
           {error && <div className="error-message">{error}</div>}
-          
+
           <div className="input-group">
             <label htmlFor="name">Name</label>
             <input
@@ -108,9 +127,9 @@ function SignUp() {
 
           <div className="login__block">
             <p>Have an account?</p>
-        <Link to="/login">
-        Login
-        </Link>
+            <Link to="/login">
+              Login
+            </Link>
           </div>
         </div>
       </div>
@@ -119,7 +138,7 @@ function SignUp() {
         <div className="background-image"></div>
       </div>
 
-   
+
     </div>
   );
 }

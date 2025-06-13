@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Calendar.module.css';
+import './Calendar.css';
 import { ModalOverlay } from '../../AdminComponent/Modals/Modals';
 
 const Calendar = ({
