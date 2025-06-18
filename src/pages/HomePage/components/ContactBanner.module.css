@@ -29,6 +29,7 @@
   font-weight: 700;
   margin-bottom: 2.5rem;
   line-height: 1.2;
+  color: white;
 }
 
 .titleBlock {
@@ -100,23 +101,47 @@
   object-fit: cover;
 }
 
-/* Responsive styles */
+/* Large desktop */
+@media (max-width: 1200px) {
+  .contactSection {
+    padding: 2.8rem 1.8rem;
+  }
+  
+  .container {
+    padding: 2.8rem;
+    gap: 2.8rem;
+  }
+  
+  .title {
+    font-size: 2.8rem;
+  }
+  
+  .contactImage {
+    max-width: 380px;
+  }
+}
+
+/* Large tablets */
 @media (max-width: 1024px) {
   .contactSection {
     padding: 2.5rem 1.5rem;
   }
-  
+
   .container {
     padding: 2.5rem;
     gap: 2.5rem;
   }
-  
+
   .title {
     font-size: 2.5rem;
   }
-  
+
   .contactItem {
     font-size: 1.1rem;
+  }
+  
+  .contactImage {
+    max-width: 350px;
   }
 }
 
@@ -124,80 +149,278 @@
   .contactSection {
     padding: 2rem 1rem;
   }
-  
+
   .contactBanner {
     border-radius: 16px;
   }
-  
+
   .container {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 2.5rem;
+    padding: 2.5rem;
     text-align: center;
   }
-  
+
   .textContainer {
     order: 1;
   }
-  
+
   .imageContainer {
     order: 2;
   }
-  
+
   .title {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin-bottom: 2rem;
   }
-  
+
   .contactInfo {
     margin-bottom: 2rem;
   }
-  
+
   .contactItem {
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contactImage {
+    max-width: 320px;
   }
   
+  .contactButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .contactSection {
+    padding: 1.8rem 0.8rem;
+  }
+  
+  .contactBanner {
+    border-radius: 14px;
+  }
+
+  .container {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .contactInfo {
+    margin-bottom: 1.8rem;
+  }
+
+  .contactItem {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
+  }
+
+  .contactButton {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
   .contactImage {
-    max-width: 300px;
+    max-width: 280px;
   }
 }
 
 @media (max-width: 480px) {
   .contactSection {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0.5rem;
   }
-  
+
   .contactBanner {
     border-radius: 12px;
   }
-  
+
   .container {
     padding: 1.5rem;
+    gap: 1.5rem;
   }
-  
+
   .title {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
+    line-height: 1.3;
   }
-  
+
+  .contactInfo {
+    margin-bottom: 1.5rem;
+  }
+
   .contactItem {
     font-size: 0.95rem;
     margin-bottom: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
   }
-  
+
   .icon {
     width: 35px;
     height: 35px;
     font-size: 1.3rem;
+    margin-right: 0;
+    margin-bottom: 0.3rem;
   }
-  
+
   .contactButton {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+    width: 100%;
+    max-width: 220px;
   }
-  
+
   .contactImage {
     max-width: 250px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .contactSection {
+    padding: 1.2rem 0.3rem;
+  }
+
+  .contactBanner {
+    border-radius: 10px;
+  }
+
+  .container {
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .contactInfo {
+    margin-bottom: 1.2rem;
+  }
+
+  .contactItem {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .contactButton {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .contactImage {
+    max-width: 220px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .contactSection {
+    padding: 1rem 0.2rem;
+  }
+
+  .contactBanner {
+    border-radius: 8px;
+  }
+
+  .container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .contactInfo {
+    margin-bottom: 1rem;
+  }
+
+  .contactItem {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
+  }
+
+  .contactButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .contactImage {
+    max-width: 190px;
+  }
+}
+
+
+@media (max-width: 896px) and (orientation: landscape) {
+  .contactSection {
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .textContainer {
+    order: 1;
+  }
+
+  .imageContainer {
+    order: 2;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contactItem {
+    justify-content: flex-start;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .contactImage {
+    max-width: 300px;
   }
 }

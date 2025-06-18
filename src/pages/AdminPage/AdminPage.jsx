@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/AdminComponent/SideBar/Sidebar';
 import WorkStaff from '../../components/AdminComponent/WorkStuff/WorkStuff';
-import Settings from '../../components/AdminComponent/SettingsComponent/Settings';
+import {Settings} from '../../components/Profile/SettingsComponent/Settings';
 import Calendar from '../../components/AdminComponent/Calendar/Calendar';
 import { LoadingModal, SavedModal, LoggedOutModal, UnsavedModal, ModalOverlay } from '../../components/AdminComponent/Modals/Modals';
 
@@ -183,17 +183,7 @@ function AdminApp() {
                 return <WorkStaff onSave={handleSaveAction} />;
             case 'settings':
                 return (
-                    <Settings
-                        onSave={handleSaveAction}
-                        userName={userName}
-                        setUserName={setUserName}
-                        userEmail={userEmail}
-                        setUserEmail={setUserEmail}
-                        userAvatar={userAvatar}
-                        setUserAvatar={setUserAvatar}
-                        appLanguage={appLanguage}
-                        setAppLanguage={setAppLanguage}
-                    />
+                    <Settings/>
                 );
             case 'dashboard':
                 return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ContactPage.module.css';
-import Header from '../../components/Header/header';
+import Header from '../../components/Header/Header';
 import Footer from '../HomePage/components/Footer';
 import heroBg from '../../assets/images/hero-bg.png';
 import pinIcon from '../../assets/images/pin.png';
@@ -19,7 +19,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const ContactPage = () => {
-    const position = [52.4064, 16.9252]; 
+    const position = [52.4064, 16.9252];
 
     return (
         <div className={styles.contactPage}>

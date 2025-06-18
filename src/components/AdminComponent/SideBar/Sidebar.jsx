@@ -64,31 +64,13 @@ const Sidebar = ({ currentPage, onNavigate, isDarkMode, setIsDarkMode, appLangua
               onClick={() => onNavigate('logout')}
               className={styles.navLink}
             >
-              <img src={logoutIcon} alt="Log Out Icon" className={styles.navIcon} /> 
+              <img src={logoutIcon} alt="Log Out Icon" className={styles.navIcon} />
               <span className={styles.navText}>{t.logout}</span>
             </a>
           </li>
         </ul>
       </nav>
       <div className={styles.bottomSection}>
-        <div className={styles.themeToggle}>
-          <span>{t.theme}</span>
-          <label className={styles.toggleSwitch}>
-            <input
-              type="checkbox"
-              checked={isDarkMode}
-              onChange={() => setIsDarkMode(!isDarkMode)}
-              className={styles.toggleInput}
-            />
-            <span
-              className={`${styles.slider} ${isDarkMode ? styles.toggleInputChecked : ''}`}
-            >
-              <span
-                className={`${styles.sliderRound} ${isDarkMode ? styles.toggleInputCheckedSlider : ''}`}
-              ></span>
-            </span>
-          </label>
-        </div>
         <a href="#" onClick={() => onNavigate('back')} className={styles.backLink}>
           <span className={styles.navIcon}>←</span>
           <span className={styles.backText}>{t.back}</span>

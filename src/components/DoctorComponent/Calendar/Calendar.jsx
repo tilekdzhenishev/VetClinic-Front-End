@@ -1,32 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Calendar.css';
-import { ModalOverlay } from '../../AdminComponent/Modals/Modals';
 
-const Calendar = ({
-  appointments = [],
-  showAddEventModal,
-  setShowAddEventModal,
-  showEditEventModal,
-  setShowEditEventModal,
-  showConfirmDeleteModal,
-  setShowConfirmDeleteModal,
-  newEvent,
-  setNewEvent,
-  editingEvent,
-  setEditingEvent,
-  eventToDelete,
-  setEventToDelete,
-  handleAddEventClick,
-  handleNewEventChange,
-  handleSaveNewEvent,
-  handleEditEventClick,
-  handleEditingEventChange,
-  handleUpdateEvent,
-  handleDeleteClick,
-  confirmDelete,
-  cancelDelete,
-}) => {
-
+const Calendar = () => {
   const [currentWeekStart, setCurrentWeekStart] = useState(() => {
     const today = new Date();
     const dayOfWeek = today.getDay();
@@ -36,263 +11,382 @@ const Calendar = ({
     return startOfWeek;
   });
 
-  const getAppointmentClassName = (color) => {
-    switch (color) {
-      case 'blue': return styles.appointment;
-      case 'green': return `${styles.appointment} ${styles.appointmentGreen}`;
-      case 'purple': return `${styles.appointment} ${styles.appointmentPurple}`;
-      case 'orange': return `${styles.appointment} ${styles.appointmentOrange}`;
-      default: return styles.appointment;
-    }
+  const [appointments, setAppointments] = useState([]);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const [newEvent, setNewEvent] = useState({
+    date: '',
+    time: '',
+    pet: '',
+    color: 'blue'
+  });
+
+  const [editingEvent, setEditingEvent] = useState(null);
+  const [eventToDelete, setEventToDelete] = useState(null);
+
+  // Time slots from 7 AM to 6 PM
+  const timeSlots = [
+    '7:00', '8:00', '9:00', '10:00', '11:00', '12:00',
+    '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'
+  ];
+
+  const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+  // Generate current week days
+  const getCurrentWeekDays = () => {
+    return Array.from({ length: 7 }, (_, i) => {
+      const date = new Date(currentWeekStart);
+      date.setDate(currentWeekStart.getDate() + i);
+
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
+
+      const today = new Date();
+      const isToday = date.toDateString() === today.toDateString();
+
+      return {
+        dayName: daysOfWeek[date.getDay()],
+        dayNumber: date.getDate(),
+        fullDate: formattedDate,
+        isToday
+      };
+    });
   };
 
-  const timeSlots = Array.from({ length: 11 }, (_, i) => {
-    const hour = i + 7;
-    const displayHour = hour > 12 ? hour - 12 : hour;
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    return `${displayHour} ${ampm}`;
-  });
+  const weekDays = getCurrentWeekDays();
 
-  const daysOfWeekNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-  const today = new Date();
-
-  const currentDisplayedWeekDays = Array.from({ length: 7 }, (_, i) => {
-    const date = new Date(currentWeekStart);
-    date.setDate(currentWeekStart.getDate() + i);
-    
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const formattedDateString = `${year}-${month}-${day}`;
-
-    return {
-      dayName: daysOfWeekNames[date.getDay()],
-      dayNumber: date.getDate(),
-      isToday: date.toDateString() === today.toDateString(),
-      fullDate: formattedDateString,
-    };
-  });
 
   const getWeekRange = () => {
-    const start = currentDisplayedWeekDays[0].fullDate;
-    const end = currentDisplayedWeekDays[6].fullDate;
+    const start = new Date(currentWeekStart);
+    const end = new Date(currentWeekStart);
+    end.setDate(start.getDate() + 6);
 
-    const startDate = new Date(start);
-    const endDate = new Date(end);
+    const startMonth = start.toLocaleString('en-US', { month: 'short' });
+    const endMonth = end.toLocaleString('en-US', { month: 'short' });
 
-    const startMonth = startDate.toLocaleString('en-US', { month: 'short' });
-    const endMonth = endDate.toLocaleString('en-US', { month: 'short' });
-
-    if (startDate.getFullYear() === endDate.getFullYear()) {
-      if (startDate.getMonth() === endDate.getMonth()) {
-        return `${startDate.getDate()} - ${endDate.getDate()} ${startMonth} ${startDate.getFullYear()}`;
-      } else {
-        return `${startDate.getDate()} ${startMonth} - ${endDate.getDate()} ${endMonth} ${startDate.getFullYear()}`;
-      }
+    if (start.getMonth() === end.getMonth()) {
+      return `${start.getDate()} - ${end.getDate()} ${startMonth} ${start.getFullYear()}`;
     } else {
-      return `${startDate.getDate()} ${startMonth} ${startDate.getFullYear()} - ${endDate.getDate()} ${endMonth} ${endDate.getFullYear()}`;
+      return `${start.getDate()} ${startMonth} - ${end.getDate()} ${endMonth} ${start.getFullYear()}`;
     }
   };
 
+
   const goToPreviousWeek = () => {
-    setCurrentWeekStart((prevStart) => {
-      const newDate = new Date(prevStart);
-      newDate.setDate(prevStart.getDate() - 7);
+    setCurrentWeekStart(prev => {
+      const newDate = new Date(prev);
+      newDate.setDate(prev.getDate() - 7);
       return newDate;
     });
   };
 
   const goToNextWeek = () => {
-    setCurrentWeekStart((prevStart) => {
-      const newDate = new Date(prevStart);
-      newDate.setDate(prevStart.getDate() + 7);
+    setCurrentWeekStart(prev => {
+      const newDate = new Date(prev);
+      newDate.setDate(prev.getDate() + 7);
       return newDate;
     });
   };
 
+
+  const handleAddEvent = () => {
+    setNewEvent({ date: '', time: '', pet: '', color: 'blue' });
+    setShowAddModal(true);
+  };
+
+  const handleSaveNewEvent = () => {
+    if (!newEvent.date || !newEvent.time || !newEvent.pet) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    const newAppointment = {
+      id: Date.now(),
+      ...newEvent,
+      fullDate: newEvent.date
+    };
+
+    setAppointments(prev => [...prev, newAppointment]);
+    setNewEvent({ date: '', time: '', pet: '', color: 'blue' });
+    setShowAddModal(false);
+  };
+
+  const handleEditEvent = (event) => {
+    setEditingEvent({ ...event });
+    setShowEditModal(true);
+  };
+
+  const handleUpdateEvent = () => {
+    if (!editingEvent.date || !editingEvent.time || !editingEvent.pet) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    setAppointments(prev =>
+      prev.map(app => app.id === editingEvent.id ? editingEvent : app)
+    );
+    setEditingEvent(null);
+    setShowEditModal(false);
+  };
+
+  const handleDeleteEvent = (event) => {
+    setEventToDelete(event);
+    setShowDeleteModal(true);
+  };
+
+  const confirmDelete = () => {
+    setAppointments(prev => prev.filter(app => app.id !== eventToDelete.id));
+    setEventToDelete(null);
+    setShowDeleteModal(false);
+    setShowEditModal(false);
+  };
+
+  const cancelDelete = () => {
+    setEventToDelete(null);
+    setShowDeleteModal(false);
+  };
+
+
+  const getAppointmentsForSlot = (date, time) => {
+    return appointments.filter(app =>
+      app.fullDate === date && app.time === time
+    );
+  };
+
+
+  const Modal = ({ isOpen, onClose, title, children }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h2 className="modal-title">{title}</h2>
+            <button className="modal-close" onClick={onClose}>×</button>
+          </div>
+          <div className="modal-body">
+            {children}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div>
-      <div className={styles.header}>
-        <h1 className={styles.pageTitle}>Calendar</h1>
-        <button className={styles.addEventButton} onClick={handleAddEventClick}>
+    <div className="calendar-container">
+
+      <div className="calendar-header">
+        <h1 className="calendar-title">Calendar</h1>
+        <button className="add-event-btn" onClick={handleAddEvent}>
           Add Event
         </button>
       </div>
-      <div className={styles.calendarNav}>
-        <button className={styles.navButton} onClick={goToPreviousWeek}>&lt;</button>
-        <span>WEEK {getWeekRange()}</span>
-        <button className={styles.navButton} onClick={goToNextWeek}>&gt;</button>
-      </div>
-      <div className={styles.weekDays}>
-        <div className={styles.dayCell}></div>
-        {currentDisplayedWeekDays.map((day, index) => (
-          <div key={day.dayName + day.dayNumber} className={`${styles.dayCell} ${day.isToday ? styles.currentDay : ''}`}>
-            <span>{day.dayName}</span> <br /> <span>{day.dayNumber}</span>
-          </div>
-        ))}
-      </div>
-      <div className={styles.calendarGrid}>
-        {timeSlots.map((time, timeIndex) => (
-          <React.Fragment key={time}>
-            <div className={styles.timeColumn}>{time}</div>
-            {currentDisplayedWeekDays.map((day, dayIndex) => {
-              const dayAppointments = appointments.filter(
-                (app) =>
-                  app.fullDate === day.fullDate &&
-                  app.time.startsWith(time.split(' ')[0])
-              );
-              return (
-                <div key={`${time}-${dayIndex}`} className={styles.timeSlot}>
-                  {dayAppointments.map((app, appIndex) => (
-                    <div key={appIndex} className={getAppointmentClassName(app.color)} onClick={() => handleEditEventClick(app)}>
-                      {app.time.split('-')[0]} <br /> {app.pet}
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
-          </React.Fragment>
-        ))}
+
+
+      <div className="week-navigation">
+        <button className="nav-btn" onClick={goToPreviousWeek}>‹</button>
+        <span className="week-range">WEEK {getWeekRange()}</span>
+        <button className="nav-btn" onClick={goToNextWeek}>›</button>
       </div>
 
-      {showAddEventModal && (
-        <ModalOverlay onClose={() => setShowAddEventModal(false)}>
-          <h2>Add New Event</h2>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Date:</label>
-            <input
-              type="date"
-              name="date"
-              value={newEvent.date}
-              onChange={handleNewEventChange}
-              className={styles.modalInput}
-            />
-          </div>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Time:</label>
-            <select
-              name="time"
-              value={newEvent.time}
-              onChange={handleNewEventChange}
-              className={styles.modalSelect}
-            >
-              <option value="">Select Time</option>
-              {timeSlots.map((slot) => (
-                <option key={slot} value={`${slot}-${parseInt(slot.split(' ')[0]) + 0.45} AM/PM`}>
-                  {slot}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Pet Name:</label>
-            <input
-              type="text"
-              name="pet"
-              value={newEvent.pet}
-              onChange={handleNewEventChange}
-              className={styles.modalInput}
-              placeholder="e.g., Buddy (Golden Retriever)"
-            />
-          </div>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Color:</label>
-            <select
-              name="color"
-              value={newEvent.color}
-              onChange={handleNewEventChange}
-              className={styles.modalSelect}
-            >
-              <option value="blue">Blue</option>
-              <option value="green">Green</option>
-              <option value="purple">Purple</option>
-              <option value="orange">Orange</option>
-            </select>
-          </div>
-          <button className={styles.modalSaveButton} onClick={handleSaveNewEvent}>
-            Save Event
-          </button>
-        </ModalOverlay>
-      )}
 
-      {showEditEventModal && editingEvent && (
-        <ModalOverlay onClose={() => setShowEditEventModal(false)}>
-          <h2>Edit Event</h2>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Date:</label>
-            <input
-              type="date"
-              name="date"
-              value={editingEvent.date}
-              onChange={handleEditingEventChange}
-              className={styles.modalInput}
-            />
-          </div>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Time:</label>
-            <select
-              name="time"
-              value={editingEvent.time}
-              onChange={handleEditingEventChange}
-              className={styles.modalSelect}
-            >
-              <option value="">Select Time</option>
-              {timeSlots.map((slot) => (
-                <option key={slot} value={`${slot}-${parseInt(slot.split(' ')[0]) + 0.45} AM/PM`}>
-                  {slot}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Pet Name:</label>
-            <input
-              type="text"
-              name="pet"
-              value={editingEvent.pet}
-              onChange={handleEditingEventChange}
-              className={styles.modalInput}
-            />
-          </div>
-          <div className={styles.modalFormGroup}>
-            <label className={styles.modalLabel}>Color:</label>
-            <select
-              name="color"
-              value={editingEvent.color}
-              onChange={handleEditingEventChange}
-              className={styles.modalSelect}
-            >
-              <option value="blue">Blue</option>
-              <option value="green">Green</option>
-              <option value="purple">Purple</option>
-              <option value="orange">Orange</option>
-            </select>
-          </div>
-          <div className={styles.modalButtonsContainer}>
-            <button className={styles.modalSaveButton} onClick={handleUpdateEvent}>
-              Save Changes
-            </button>
-            <button className={styles.modalDeleteButton} onClick={() => handleDeleteClick(editingEvent)}>
-              Delete Event
-            </button>
-          </div>
-        </ModalOverlay>
-      )}
+      <div className="calendar-grid">
 
-      {showConfirmDeleteModal && eventToDelete && (
-        <ModalOverlay onClose={cancelDelete}>
-          <h2>Confirm Deletion</h2>
-          <p>Вы уверены, что хотите удалить событие для **{eventToDelete.pet}** в **{eventToDelete.time}**?</p>
-          <div className={styles.modalButtonsContainer}>
-            <button className={styles.modalDeleteButton} onClick={confirmDelete}>
-              Confirm
-            </button>
-            <button className={styles.modalSaveButton} onClick={cancelDelete}>
-              Cancel
-            </button>
-          </div>
-        </ModalOverlay>
-      )}
+        <div className="day-headers">
+          <div className="time-header"></div>
+          {weekDays.map((day, index) => (
+            <div key={index} className={`day-header ${day.isToday ? 'today' : ''}`}>
+              <div className="day-name">{day.dayName}</div>
+              <div className="day-number">{day.dayNumber}</div>
+            </div>
+          ))}
+        </div>
+
+
+        <div className="time-slots">
+          {timeSlots.map((time, timeIndex) => (
+            <div key={time} className="time-row">
+              <div className="time-label">{time}</div>
+              {weekDays.map((day, dayIndex) => {
+                const slotAppointments = getAppointmentsForSlot(day.fullDate, time);
+
+                return (
+                  <div key={`${time}-${dayIndex}`} className="time-slot">
+                    {slotAppointments.map((appointment, appIndex) => (
+                      <div
+                        key={appIndex}
+                        className={`appointment appointment-${appointment.color}`}
+                        onClick={() => handleEditEvent(appointment)}
+                      >
+                        <div className="appointment-time">{appointment.time}</div>
+                        <div className="appointment-pet">{appointment.pet}</div>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+      <Modal
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        title="Add New Event"
+      >
+        <div className="form-group">
+          <label className="form-label">Date</label>
+          <input
+            type="date"
+            className="form-input"
+            value={newEvent.date}
+            onChange={(e) => setNewEvent(prev => ({ ...prev, date: e.target.value }))}
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Time</label>
+          <select
+            className="form-select"
+            value={newEvent.time}
+            onChange={(e) => setNewEvent(prev => ({ ...prev, time: e.target.value }))}
+          >
+            <option value="">Select Time</option>
+            {timeSlots.map(slot => (
+              <option key={slot} value={slot}>{slot}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Pet Name</label>
+          <input
+            type="text"
+            className="form-input"
+            value={newEvent.pet}
+            onChange={(e) => setNewEvent(prev => ({ ...prev, pet: e.target.value }))}
+            placeholder="e.g., Buddy (Golden Retriever)"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Color</label>
+          <select
+            className="form-select"
+            value={newEvent.color}
+            onChange={(e) => setNewEvent(prev => ({ ...prev, color: e.target.value }))}
+          >
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="purple">Purple</option>
+            <option value="orange">Orange</option>
+          </select>
+        </div>
+
+        <button className="btn-primary" onClick={handleSaveNewEvent}>
+          Save Event
+        </button>
+      </Modal>
+
+
+      <Modal
+        isOpen={showEditModal}
+        onClose={() => setShowEditModal(false)}
+        title="Edit Event"
+      >
+        {editingEvent && (
+          <>
+            <div className="form-group">
+              <label className="form-label">Date</label>
+              <input
+                type="date"
+                className="form-input"
+                value={editingEvent.date}
+                onChange={(e) => setEditingEvent(prev => ({ ...prev, date: e.target.value }))}
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Time</label>
+              <select
+                className="form-select"
+                value={editingEvent.time}
+                onChange={(e) => setEditingEvent(prev => ({ ...prev, time: e.target.value }))}
+              >
+                <option value="">Select Time</option>
+                {timeSlots.map(slot => (
+                  <option key={slot} value={slot}>{slot}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Pet Name</label>
+              <input
+                type="text"
+                className="form-input"
+                value={editingEvent.pet}
+                onChange={(e) => setEditingEvent(prev => ({ ...prev, pet: e.target.value }))}
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Color</label>
+              <select
+                className="form-select"
+                value={editingEvent.color}
+                onChange={(e) => setEditingEvent(prev => ({ ...prev, color: e.target.value }))}
+              >
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+                <option value="orange">Orange</option>
+              </select>
+            </div>
+
+            <div className="btn-group">
+              <button className="btn-primary" onClick={handleUpdateEvent}>
+                Save Changes
+              </button>
+              <button className="btn-danger" onClick={() => handleDeleteEvent(editingEvent)}>
+                Delete
+              </button>
+            </div>
+          </>
+        )}
+      </Modal>
+
+
+      <Modal
+        isOpen={showDeleteModal}
+        onClose={cancelDelete}
+        title="Confirm Deletion"
+      >
+        {eventToDelete && (
+          <>
+            <p className="delete-message">
+              Are you sure you want to delete the appointment for{' '}
+              <strong>{eventToDelete.pet}</strong> at{' '}
+              <strong>{eventToDelete.time}</strong>?
+            </p>
+
+            <div className="btn-group">
+              <button className="btn-danger" onClick={confirmDelete}>
+                Confirm Delete
+              </button>
+              <button className="btn-secondary" onClick={cancelDelete}>
+                Cancel
+              </button>
+            </div>
+          </>
+        )}
+      </Modal>
     </div>
   );
 };

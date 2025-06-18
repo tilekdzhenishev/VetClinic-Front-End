@@ -1,103 +1,191 @@
-
-.blog-page {
-  font-family: sans-serif;
-  color: #2d3748;
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  color: #333;
 }
 
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  color: white;
-}
-
-.hero-logo {
-  width: 8rem;
-  margin-bottom: 1rem;
-}
-
-.section {
-  padding: 4rem 1rem;
-  max-width: 72rem;
+.vet-clinic-app {
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-.section-title {
-  font-size: 1.875rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-align: center;
+h1,
+h2,
+h3 {
+  color: #2c3e50;
 }
 
-.clinic-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .clinic-grid {
-    grid-template-columns: repeat(3, 1fr);
+
+
+
+
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 400px;
+  }
+
+  .hero-content {
+    margin-left: 50px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5em;
+  }
+
+  .services-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services-header {
+    max-width: 100%;
+  }
+
+  .services-image {
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .carousel-wrapper {
+    width: calc(100% * 3);
+  }
+
+  .carousel-item {
+    min-width: 100%;
+  }
+
+  .carousel-button {
+    font-size: 1.5em;
+    padding: 8px 12px;
   }
 }
 
-.clinic-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+  .vet-clinic-app {
+    padding: 0 15px;
+  }
+
+  .hero-section {
+    height: 350px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .hero-section h1 {
+    font-size: 2em;
+  }
+
+  .hero-button {
+    font-size: 1em;
+    padding: 12px 25px;
+  }
+
+  .services-section,
+  .clinic-locations-section,
+  .faq-section {
+    padding: 20px;
+  }
+
+  .services-header h2 {
+    font-size: 2em;
+  }
+
+  .services-header p {
+    font-size: 1em;
+  }
+
+  .clinic-locations-header h2 {
+    font-size: 1.8em;
+  }
+
+  .carousel-item {
+    min-width: 100%;
+    padding: 0;
+  }
+
+  .clinic-info {
+    padding: 15px;
+  }
+
+  .clinic-info h3 {
+    font-size: 1.5em;
+  }
+
+  .clinic-description {
+    font-size: 0.9em;
+  }
+
+  .book-visit-button {
+    font-size: 0.85em;
+    padding: 8px 15px;
+  }
+
+  .carousel-button {
+    font-size: 1.2em;
+    padding: 5px 10px;
+  }
+
+  .faq-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .accordion-header {
+    font-size: 1em;
+    padding: 15px;
+  }
+
+  .accordion-content {
+    padding: 5px 15px 15px;
+  }
+
+  .accordion-content p {
+    font-size: 0.9em;
+  }
 }
 
-.clinic-card img {
-  width: 100%;
-  height: 12rem;
-  object-fit: cover;
-}
+@media (max-width: 480px) {
+  .hero-section {
+    height: 300px;
+  }
 
-.clinic-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
+  .hero-section h1 {
+    font-size: 1.7em;
+  }
 
-.faq-question {
-  padding: 0.5rem 0;
-  font-size: 1.125rem;
-  font-weight: 500;
-  text-align: left;
-  cursor: pointer;
-}
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
 
-.faq-answer {
-  padding: 0.5rem 0;
-  color: #4a5568;
-}
+  .services-section h2 {
+    font-size: 1.8em;
+  }
 
-.footer {
-  background-color: #f7fafc;
-  padding: 1.5rem 0;
-  text-align: center;
-  font-size: 0.875rem;
-  color: #a0aec0;
+  .clinic-locations-header h2 {
+    font-size: 1.5em;
+  }
+
+  .accordion-header {
+    font-size: 0.95em;
+  }
 }

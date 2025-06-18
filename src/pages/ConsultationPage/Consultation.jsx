@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Consultation.css";
-import Header from "../../components/Header/header";
+import Header from "../../components/Header/Header";
 import Footer from "../HomePage/components/Footer";
 import consultImg from "../../assets/images/consult-2.png";
 import clinicImg from "../../assets/images/consult-3.png";

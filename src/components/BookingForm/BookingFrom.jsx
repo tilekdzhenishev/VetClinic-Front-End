@@ -13,7 +13,7 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => { } }) => {
         throw new Error("User not authenticated. Please log in.");
       }
 
-      // Получаем userId
+
       const userRes = await fetch("https://vetclinic-back-end.onrender.com/api/users/me", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -208,7 +208,7 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => { } }) => {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content-booking">
         <div className="step-indicator">
           <span className={step === 1 ? "active" : ""}>1. Booking Details</span>
           <span className={step === 2 ? "active" : ""}>

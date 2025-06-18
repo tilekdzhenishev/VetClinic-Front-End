@@ -3,38 +3,35 @@
 }
 
 .hero {
-  background: url("../../../src/assets/images/Header.png") center center/cover no-repeat;
+  background: url("../../../src/assets/images/Consultation.png") center center/cover no-repeat;
   color: white;
   height: 100vh;
-  display: flex;
-
+  display: flex; 
   padding: 0 20px;
+  width: 100%;
 }
 
+
+
 .hero h1 {
-  font-size: 4rem;
-  max-width: 900px;
+  width: 100vh;
+  font-size: 3.5rem;
   line-height: 1.2;
   font-weight: 700;
-  margin-top: 40%;
-  margin-left: 0;
-  padding-left: 150px;
+  margin-top: 95%;
+color: #fff;
+
   text-align: left;
 }
 
-.consult-section,
-.visit-section {
-  display: flex;
-
+.consult-section, .visit-section {
+  display: flex; 
   padding: 80px 10%;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
-.consult-left,
-.visit-right,
-.consult-right,
-.visit-left {
+.consult-left, .visit-right, .consult-right, .visit-left {
   flex: 1;
   min-width: 280px;
   display: flex;
@@ -42,11 +39,13 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
 h2 {
   font-size: 45px;
   font-weight: normal;
   margin-bottom: 20px;
 }
+
 p {
   font-size: 22px;
   font-weight: 200;
@@ -77,19 +76,126 @@ p {
   background-color: #3730a3;
 }
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 3.5rem;
+    padding-left: 100px;
+    margin-top: 35%;
+  }
+  
+  h2 {
+    font-size: 38px;
+  }
+  
+  p {
+    font-size: 20px;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .consult-section, .visit-section {
+    padding: 60px 8%;
+  }
+}
+
+/* Mobile landscape styles */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero {
+    height: 100vh;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+    margin-top: 25%;
+    padding-left: 50px;
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    padding-left: 50px;
+    margin-top: 30%;
+    max-width: 100%;
   }
-
+  
   .consult-section,
   .visit-section {
     flex-direction: column;
-    padding: 40px 20px;
+    padding: 50px 5%;
+    gap: 1.5rem;
   }
-
-  .primary-btn {
+  
+  h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 18px;
     width: 100%;
     text-align: center;
+  }
+  
+  .consult-left, .visit-right, .consult-right, .visit-left {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .primary-btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 15px;
+    height: 70vh;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    padding-left: 20px;
+    margin-top: 60%;
+    text-align: center;
+  }
+  
+  .consult-section, .visit-section {
+    padding: 40px 20px;
+    gap: 1rem;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  .primary-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
+
+/* Very small mobile styles */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 1.8rem;
+    padding-left: 15px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  p {
+    font-size: 15px;
   }
 }
