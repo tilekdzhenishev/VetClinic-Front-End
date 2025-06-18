@@ -1,0 +1,164 @@
+.admin-appointments-container {
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    color: #333;
+  }
+
+  .admin-appointments-header {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .appointments-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .appointment-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    position: relative; 
+  }
+
+  .appointment-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .appointment-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px 20px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+
+  .appointment-info div {
+    font-size: 0.95em;
+    color: #555;
+  }
+
+  .appointment-info strong {
+    color: #2c3e50;
+    margin-right: 5px;
+  }
+
+  .problem-description {
+    font-size: 1em;
+    color: #444;
+    margin-bottom: 15px;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  .status-button {
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; 
+  }
+
+  .status-button.approve {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .status-button.approve:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+  }
+
+  .status-button.reject {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .status-button.reject:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+  }
+
+  .status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+  }
+
+  .status-badge.pending {
+    background-color: #ffc107;
+  }
+  .status-badge.approve {
+    background-color: #28a745; 
+  }
+  .status-badge.reject {
+    background-color: #dc3545; 
+  }
+
+  .loading-message, .error-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    padding: 50px;
+  }
+
+  .error-message {
+    color: #dc3545;
+  }
+
+  @media (max-width: 768px) {
+    .admin-appointments-header {
+      font-size: 2em;
+    }
+    .appointments-section {
+      padding: 20px;
+    }
+    .section-title {
+      font-size: 1.5em;
+    }
+    .appointment-info {
+      grid-template-columns: 1fr; 
+    }
+    .status-button {
+      padding: 6px 10px;
+      font-size: 0.8em;
+    }
+    .card-actions {
+      justify-content: center; 
+    }
+  }

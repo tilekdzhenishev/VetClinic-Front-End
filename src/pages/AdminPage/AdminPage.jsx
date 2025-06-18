@@ -4,6 +4,7 @@ import WorkStaff from '../../components/AdminComponent/WorkStuff/WorkStuff';
 import {Settings} from '../../components/Profile/SettingsComponent/Settings';
 import Calendar from '../../components/AdminComponent/Calendar/Calendar';
 import { LoadingModal, SavedModal, LoggedOutModal, UnsavedModal, ModalOverlay } from '../../components/AdminComponent/Modals/Modals';
+import Consultations from '../../components/AdminComponent/Consultations/Consultations';
 
 const adminAppStyles = {
     adminContainer: {
@@ -185,6 +186,10 @@ function AdminApp() {
                 return (
                     <Settings/>
                 );
+                case 'consultations':
+                    return (
+                        <Consultations/>
+                    );
             case 'dashboard':
                 return (
                     <Calendar

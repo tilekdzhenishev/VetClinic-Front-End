@@ -314,7 +314,7 @@ const WorkStaff = ({ onSave }) => {
                 >
                   <option value="doctor">Doctor</option>
                   <option value="admin">Admin</option>
-                  <option value="assistant">Assistant</option>
+                  <option value="patient">Patient</option>
                 </select>
               </div>
             </div>
@@ -342,7 +342,7 @@ const WorkStaff = ({ onSave }) => {
                   <option value="all">All Users</option>
                   <option value="doctor">Doctors</option>
                   <option value="admin">Admins</option>
-                  <option value="assistant">Assistants</option>
+                  <option value="patient">Patient</option>
                 </select>
               </div>
             </div>
@@ -377,7 +377,7 @@ const WorkStaff = ({ onSave }) => {
                       >
                         <option value="doctor">Doctor</option>
                         <option value="admin">Admin</option>
-                        <option value="assistant">Assistant</option>
+                        <option value="patient">Patient</option>
                       </select>
                     </div>
                   ))}
