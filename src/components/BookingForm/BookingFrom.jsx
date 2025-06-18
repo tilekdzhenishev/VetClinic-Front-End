@@ -28,9 +28,22 @@ const MultiStepFormModal = ({ isOpen = true, onClose = () => { } }) => {
 
 
       const requestBody = {
-        ...formData,
-        userId: user.id,
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        phone: formData.mobileNumber,
+        email: formData.email,
+        address: formData.address,
+        pet_name: formData.petName,
+        pet_type: formData.petType,
+        breed: formData.breed,
+        pet_age: formData.age,
+        illness_period: formData.illnessPeriod,
+        problem: formData.problem,
+        date: formData.selectedDate.toISOString().split("T")[0],
+        time: formData.selectedTime,
+        user_id: user.id,
       };
+
 
       const res = await fetch("https://vetclinic-back-end.onrender.com/api/appointments", {
         method: "POST",

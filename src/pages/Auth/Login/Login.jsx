@@ -13,15 +13,15 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     if (!email || !password) {
       setError("All fields are required!");
       return;
     }
-
+  
     setLoading(true);
     setError("");
-
+  
     try {
       const res = await fetch(
         "https://vetclinic-back-end.onrender.com/api/auth/login",
@@ -33,17 +33,26 @@ function Login() {
           body: JSON.stringify({ email, password }),
         }
       );
+  
       const data = await res.json();
-
+  
       if (!res.ok) {
         if (res.status === 401) {
           throw new Error("Invalid credentials. Please try again.");
         }
         throw new Error(data.message || "Login failed");
       }
-
+  
+      
       localStorage.setItem("token", data.token);
-      navigate("/home");
+      localStorage.setItem("role", data.user?.role || "user");
+  
+ 
+      if (data.user?.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/home");
+      }
     } catch (error) {
       console.error("Login error:", error);
       setError(error.message);
@@ -51,6 +60,7 @@ function Login() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="login-page">

@@ -11,6 +11,12 @@ import logoutIcon from '../../../assets/images/logout_icon.png';
 const Sidebar = ({ currentPage, onNavigate, isDarkMode, setIsDarkMode }) => {
   const navigate = useNavigate();
 
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
   return (
     <div className={`${styles.sidebar} ${isDarkMode ? styles.darkMode : ''}`}>
       <div className={styles.logoContainer}>
@@ -61,7 +67,7 @@ const Sidebar = ({ currentPage, onNavigate, isDarkMode, setIsDarkMode }) => {
           <li className={styles.navItem}>
             <a
               href="#"
-              onClick={() => onNavigate('logout')}
+              onClick={handleLogOut}
               className={styles.navLink}
             >
               <img src={logoutIcon} alt="Log Out Icon" className={styles.navIcon} />

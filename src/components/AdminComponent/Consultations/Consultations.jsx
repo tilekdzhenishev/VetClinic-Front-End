@@ -63,8 +63,9 @@ function Consultations() {
     }, []);
 
     const pendingAppointments = appointments.filter(app => app.status === 'pending');
-    const confirmedAppointments = appointments.filter(app => app.status === 'approve');
-    const rejectedAppointments = appointments.filter(app => app.status === 'reject');
+    const confirmedAppointments = appointments.filter(app => app.status === 'approved');
+    const rejectedAppointments = appointments.filter(app => app.status === 'rejected');
+
 
     return (
         <div className="admin-appointments-container">
