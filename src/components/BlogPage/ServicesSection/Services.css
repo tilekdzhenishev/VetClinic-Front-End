@@ -1,72 +1,87 @@
 body {
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #f7f7f7;
-  color: #333;
-}
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    color: #333;
+  }
 
-.vet-clinic-app {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
-h1,
-h2,
-h3 {
-  color: #2c3e50;
-}
+  h1,
+  h2,
+  h3 {
+    color: #2c3e50;
+  }
 
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
 
-.services-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 80px;
-  padding: 40px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
+  .services-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 80px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
 
-.services-header {
-  flex: 1;
-  max-width: 600px;
-}
+  .services-header {
+    flex: 1;
+    max-width: 600px;
+  }
 
-.services-header h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #2c3e50;
-}
+  .services-header h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
 
-.services-header p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  color: #555;
-}
+  .services-header p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+  }
 
-.services-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
+  .services-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
 
-.services-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
+  .services-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Адаптивность для меньших экранов */
+  @media (max-width: 768px) {
+      .services-section {
+          flex-direction: column; /* Элементы стекаются вертикально на маленьких экранах */
+          text-align: center;
+      }
+      .services-header {
+          max-width: 100%; /* Полная ширина для заголовка */
+      }
+      .services-image {
+          justify-content: center; /* Центрирование изображения */
+      }
+      .services-header h2 {
+          font-size: 2em; /* Меньший размер шрифта для заголовка на мобильных устройствах */
+      }
+      .services-header p {
+          font-size: 1em; /* Меньший размер шрифта для параграфа на мобильных устройствах */
+      }
+  }

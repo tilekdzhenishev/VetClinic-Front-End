@@ -1,221 +1,220 @@
 body {
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #f7f7f7;
-  color: #333;
-}
-
-.vet-clinic-app {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-h1,
-h2,
-h3 {
-  color: #2c3e50;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.clinic-locations-section {
-  margin-bottom: 80px;
-  padding: 40px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.clinic-locations-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.clinic-locations-header h2 {
-  font-size: 2.2em;
-  color: #2c3e50;
-}
-
-.see-all-link {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.see-all-link:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-wrapper {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: calc(100% * 3);
-}
-
-.carousel-item {
-  min-width: calc(100% / 3);
-  box-sizing: border-box;
-  padding: 0 15px;
-  display: flex;
-  flex-direction: column;
-  background-color: #fefefe;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  margin-bottom: 20px;
-}
-
-.clinic-info {
-  padding: 0 20px 20px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.clinic-info h3 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.clinic-description {
-  font-size: 0.95em;
-  line-height: 1.5;
-  color: #666;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.book-visit-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  font-size: 0.9em;
-  align-self: flex-start;
-}
-
-.book-visit-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-1px);
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 2em;
-  padding: 10px 15px;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-button.prev {
-  left: 10px;
-}
-
-.carousel-button.next {
-  right: 10px;
-}
-
-@media (max-width: 1024px) {
-  .carousel-wrapper {
-    width: calc(100% * 3);
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    color: #333;
   }
 
-  .carousel-item {
-    min-width: 100%;
+  h1,
+  h2,
+  h3 {
+    color: #2c3e50;
   }
 
-  .carousel-button {
-    font-size: 1.5em;
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .services-section,
-  .clinic-locations-section,
-  .faq-section {
-    padding: 20px;
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
-  .services-header h2 {
-    font-size: 2em;
+  .clinic-locations-section {
+    margin-bottom: 80px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
 
-  .services-header p {
-    font-size: 1em;
+  .clinic-locations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
   }
 
   .clinic-locations-header h2 {
-    font-size: 1.8em;
+    font-size: 2.2em;
+    color: #2c3e50;
+  }
+
+  .see-all-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .see-all-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Width will be calculated dynamically in JS based on clinics.length and itemsPerSlide */
   }
 
   .carousel-item {
-    min-width: 100%;
-    padding: 0;
+    box-sizing: border-box;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin-bottom: 20px;
   }
 
   .clinic-info {
-    padding: 15px;
+    padding: 0 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .clinic-info h3 {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #2c3e50;
   }
 
   .clinic-description {
-    font-size: 0.9em;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
   }
 
   .book-visit-button {
-    font-size: 0.85em;
-    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    align-self: flex-start;
+  }
+
+  .book-visit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
   }
 
   .carousel-button {
-    font-size: 1.2em;
-    padding: 5px 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2em;
+    padding: 10px 15px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
   }
-}
 
-@media (max-width: 480px) {
-  .clinic-locations-header h2 {
-    font-size: 1.5em;
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
   }
-}
+
+  .carousel-button.prev {
+    left: 10px;
+    display: none;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+    display: none;
+  }
+
+
+  @media (min-width: 1025px) {
+    .carousel-item {
+      min-width: calc(100% / 3); 
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .carousel-item {
+      min-width: 50%; 
+    }
+    .carousel-button.prev {
+        
+        display: block;
+      }
+    
+      .carousel-button.next {
+
+        display: block;
+      }
+  }
+
+  @media (max-width: 768px) {
+    .clinic-locations-section {
+      padding: 20px;
+    }
+
+    .clinic-locations-header h2 {
+      font-size: 1.8em;
+    }
+
+    .carousel-item {
+      min-width: 100%; /* 1 item on mobile */
+      padding: 0 10px; /* Adjust padding for mobile */
+    }
+
+    .clinic-info {
+      padding: 15px;
+    }
+
+    .clinic-info h3 {
+      font-size: 1.5em;
+    }
+
+    .clinic-description {
+      font-size: 0.9em;
+    }
+
+    .book-visit-button {
+      font-size: 0.85em;
+      padding: 8px 15px;
+    }
+
+    .carousel-button {
+      font-size: 1.2em;
+      padding: 5px 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .clinic-locations-header h2 {
+      font-size: 1.5em;
+    }
+    .carousel-item {
+      padding: 0 5px; 
+    }
+    .carousel-button {
+      font-size: 1em;
+      padding: 3px 8px;
+    }
+  }

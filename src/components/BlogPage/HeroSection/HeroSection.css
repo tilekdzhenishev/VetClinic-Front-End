@@ -7,11 +7,7 @@ body {
   color: #333;
 }
 
-.vet-clinic-app {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+
 
 h1,
 h2,
@@ -30,7 +26,8 @@ button {
 
 .hero-section {
   position: relative;
-  height: 500px;
+  width: 100vw;
+  height: 100vh;
   background: url("../../../assets//images/Header.png")
     no-repeat center center/cover;
   display: flex;
@@ -38,8 +35,9 @@ button {
   justify-content: flex-start;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding-top: 10%;
   margin-bottom: 50px;
-  border-radius: 12px;
+
   overflow: hidden;
 }
 
@@ -84,9 +82,7 @@ button {
 }
 
 @media (max-width: 768px) {
-  .vet-clinic-app {
-    padding: 0 15px;
-  }
+
 
   .hero-section {
     height: 350px;

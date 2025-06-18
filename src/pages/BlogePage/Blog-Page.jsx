@@ -9,7 +9,7 @@ import ClinicLocationsSection from '../../components/BlogPage/ClinicLocationsSec
 
 function App() {
   return (
-    <div className="vet-clinic-app">
+    <div >
       <Header />
       <HeroSection />
 
